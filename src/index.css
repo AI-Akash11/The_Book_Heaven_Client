@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:wght@400;700;900&display=swap");
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: ["light", "dark"]; 
+}
+
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+
+  --color-primary: #88ab3e;  
+  --color-secondary: #1b4242;  
+  --color-accent: #e8c547;    
+  --color-neutral: #f5f5dc;  
+  --color-base-100: #ffffff;  
+  --color-base-200: #fafaf5;  
+  --color-base-300: #f0f0e8;     
+  --color-base-content: #1a1916; 
+  --color-info: #3abff8;
+  --color-success: #36d399;
+  --color-warning: #fbbd23;
+  --color-error: #f87272;
+}
+
+
+@plugin "daisyui/theme" {
+  name: "dark";
+
+  --color-primary: #9dbf4a;
+  --color-secondary: #2d6a6a;
+  --color-accent: #f0d56d;
+  --color-neutral: #2a2721;
+  --color-base-100: #1a1916;
+  --color-base-200: #242220;
+  --color-base-300: #2e2c28;     
+  --color-base-content: #ffffff; 
+  --color-info: #3abff8;
+  --color-success: #36d399;
+  --color-warning: #fbbd23;
+  --color-error: #f87272;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Merriweather", serif;
+}
