@@ -63,7 +63,7 @@ const Login = () => {
 
         <div className="flex items-center px-15 my-4">
           <hr className="grow border-t border-gray-400" />
-          <span className="mx-4 text-gray-600">or</span>
+          <span className="mx-4 text-primary">or</span>
           <hr className="grow border-t border-gray-400" />
         </div>
 
