@@ -23,7 +23,11 @@ const Navbar = () => {
     <div className="navbar bg-primary shadow-sm">
       <div className="navbar-start">
         <div className="dropdown text-accent">
-          <div tabIndex={0} role="button" className="btn btn-secondary lg:hidden">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn btn-secondary lg:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -47,14 +51,24 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <div className="ml-5 lg:ml-0">
-            <Logo></Logo>
+        <div className="ml-2 lg:ml-0">
+          <Logo></Logo>
         </div>
       </div>
       <div className="navbar-center text-white hidden lg:flex">
         <ul className="menu font-bold menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end"></div>
+      <div className="navbar-end flex gap-3">
+        <Link to={"/auth/login"} className="btn btn-accent text-white font-semibold">
+          Login
+        </Link>
+        <Link
+          to={"/auth/register"}
+          className="btn btn-secondary text-white font-semibold"
+        >
+          Register
+        </Link>
+      </div>
     </div>
   );
 };

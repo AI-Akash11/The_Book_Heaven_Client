@@ -39,11 +39,11 @@ export const router = createBrowserRouter([
         errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
-                path: '/auth/login',
+                path: 'login',
                 element: <Login></Login>
             },
             {
-                path: '/auth/register',
+                path: 'register',
                 element: <Register></Register>
             }
         ]
