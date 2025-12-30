@@ -3,8 +3,8 @@ import React from 'react';
 const Loading = () => {
     return (
         <div>
-            
-        </div>
+      <span className="loading loading-spinner text-info"></span>
+    </div>
     );
 };
 
