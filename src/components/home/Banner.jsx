@@ -60,7 +60,7 @@ const Banner = () => {
 
   return (
     <div
-      className="relative h-[50vh] sm:h-[60vh] lg:h-125 xl:h-150 w-full overflow-hidden flex items-center justify-center mt-2 sm:mt-4 lg:mt-5 rounded-none sm:rounded-xl mx-auto"
+      className="relative h-[50vh] sm:h-[60vh] lg:h-125 xl:h-150 w-full overflow-hidden flex items-center justify-center mt-2 sm:mt-4 lg:mt-5 rounded-xl mx-auto"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -141,7 +141,7 @@ const Banner = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
           className="text-sm sm:text-base md:text-lg lg:text-xl 
-                     text-gray-100 max-w-2xl mx-auto leading-relaxed 
+                     text-gray-100 max-w-3/4 md:max-w-2xl mx-auto leading-relaxed 
                      mb-8 sm:mb-10 md:mb-12 drop-shadow-lg"
         >
           Discover enchanted realms, timeless heroes, and stories beyond imagination
@@ -159,9 +159,9 @@ const Banner = () => {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               className="bg-accent hover:bg-amber-500 text-primary font-semibold 
-                         px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg shadow-xl 
+                         px-6 md:px-8 py-3 md:py-3.5 rounded-lg shadow-xl 
                          transition-all duration-300 
-                         text-sm sm:text-base md:text-lg w-full sm:w-auto
+                         text-sm md:text-base lg:text-lg w-1/2 md:w-full sm:w-auto
                          hover:shadow-2xl hover:shadow-amber-500/50
                          border-2 border-accent hover:border-white"
             >
@@ -174,9 +174,9 @@ const Banner = () => {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               className="bg-secondary hover:bg-blue-500 text-white font-semibold 
-                         px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg shadow-xl 
+                         px-6 md:px-8 py-3 md:py-3.5 rounded-lg shadow-xl 
                          transition-all duration-300 
-                         text-sm sm:text-base md:text-lg w-full sm:w-auto
+                         text-sm md:text-base lg:text-lg w-1/2 md:w-full sm:w-auto
                          backdrop-blur-sm
                          border-2 border-secondary hover:border-white"
             >

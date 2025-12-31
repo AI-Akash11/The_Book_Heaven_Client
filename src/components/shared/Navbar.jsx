@@ -59,12 +59,12 @@ const Navbar = () => {
         <ul className="menu font-bold menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end flex gap-3">
-        <Link to={"/auth/login"} className="btn btn-accent text-white font-semibold">
+        <Link to={"/auth/login"} className="btn btn-accent text-white hover:bg-amber-500 font-semibold">
           Login
         </Link>
         <Link
           to={"/auth/register"}
-          className="btn btn-secondary text-white font-semibold"
+          className="btn btn-secondary hover:bg-blue-500 text-white font-semibold"
         >
           Register
         </Link>

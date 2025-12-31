@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const AboutSection = () => {
   return (
-    <section className="py-20 mb-10 bg-gradient-to-b from-[#d4cefb] to-amber-100 rounded-sm">
+    <section className="py-20 mb-10 bg-gradient-to-b from-[#9282f7] to-amber-200 rounded-xl">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
 
@@ -33,7 +33,7 @@ const AboutSection = () => {
           </div>
 
           <div className="mt-10">
-            <Link to={'/all-books'} className="px-8 py-3 bg-secondary text-white font-medium text-lg rounded-lg hover:bg-secondary/90 transition shadow-md">
+            <Link to={'/all-books'} className="px-8 py-3 bg-secondary text-white font-medium text-lg rounded-lg hover:bg-blue-500 transition shadow-md">
               Explore All Books
             </Link>
           </div>
