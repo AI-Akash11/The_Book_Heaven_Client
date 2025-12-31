@@ -1,8 +1,20 @@
 import { Link, NavLink } from "react-router";
 import Loading from "./Loading";
 import Logo from "../../utils/Logo";
+import useAuth from "../../hooks/useAuth";
+import { button, div } from "framer-motion/client";
 
 const Navbar = () => {
+  const { user, logOut } = useAuth();
+
+  const handleLogOut = () => {
+    logOut()
+    .then()
+    .catch(error=>{
+      console.log(error)
+    })
+  };
+
   const links = (
     <>
       <li>
@@ -58,16 +70,30 @@ const Navbar = () => {
       <div className="navbar-center text-white hidden lg:flex">
         <ul className="menu font-bold menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end flex gap-3">
-        <Link to={"/auth/login"} className="btn btn-accent text-white hover:bg-amber-500 font-semibold">
-          Login
-        </Link>
-        <Link
-          to={"/auth/register"}
-          className="btn btn-secondary hover:bg-blue-500 text-white font-semibold"
-        >
-          Register
-        </Link>
+      <div className="navbar-end">
+        {user ? (
+          <button
+            onClick={handleLogOut}
+            className="btn btn-accent text-white hover:bg-amber-500 font-semibold"
+          >
+            Logout
+          </button>
+        ) : (
+          <div className="flex gap-3">
+            <Link
+              to={"/auth/login"}
+              className="btn btn-accent text-white hover:bg-amber-500 font-semibold"
+            >
+              Login
+            </Link>
+            <Link
+              to={"/auth/register"}
+              className="btn btn-secondary hover:bg-blue-500 text-white font-semibold"
+            >
+              Register
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

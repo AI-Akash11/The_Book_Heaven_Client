@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../components/auth/SocialLogin";
 import { useForm } from "react-hook-form";
+import useAuth from "../hooks/useAuth";
+import axios from "axios";
 
 const Register = () => {
   const [eye, setEye] = useState(true);
@@ -11,9 +13,50 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const { registerUser, updateUserProfile } = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
+
 
   const handleRegistration = (data) => {
     console.log(data);
+    const profileImage = data.photo[0]
+
+
+    registerUser(data.email, data.password)
+      .then((result) => {
+        console.log(result.user);
+        // image hosting
+        const formData = new FormData();
+        formData.append('image', profileImage);
+
+        const image_API_URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`
+
+        axios.post(image_API_URL, formData)
+        .then(res=>{
+          console.log('after image upload',res.data.data.url)
+
+          // update user profile here
+          const userProfile = {
+            displayName: data.name,
+            photoURL: res.data.data.url
+          }
+
+          updateUserProfile(userProfile)
+          .then(()=>{
+            console.log('user profile updated')
+            navigate(location?.state || '/')
+          })
+          .catch(error=>{
+            console.log(error)
+          })
+        })
+
+
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -52,15 +95,21 @@ const Register = () => {
           )}
 
           {/* Image */}
-          <label className="text-sm  mt-3 ml-1">Photo URL</label>
+          <label className="text-sm mt-3 ml-1">Profile Image</label>
+
           <input
-            type="text"
-            {...register("photoURL", {
-              required: true,
+            type="file"
+            {...register("photo", {
+              required: "Profile image is required",
             })}
-            placeholder="Enter a photo URL"
-            className="px-3 py-2 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
+            className="file-input w-full bg-[#e0e5ec] pr-3 rounded-xl shadow-inner shadow-[#a3b1c6]/70 outline-none border-gray-200"
           />
+
+          {errors.photo && (
+            <p className="text-error text-sm mt-1 ml-1">
+              {errors.photo.message}
+            </p>
+          )}
 
           {/* email */}
           <label className="text-sm  mt-3 ml-1">Email</label>
@@ -131,6 +180,7 @@ const Register = () => {
         <div className="text-center mt-4 text-primary text-sm">
           Already have an account?{" "}
           <Link
+          state={location.state}
             to={"/auth/login"}
             className="text-accent font-semibold underline underline-offset-4"
           >

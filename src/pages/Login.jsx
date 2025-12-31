@@ -1,20 +1,31 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../components/auth/SocialLogin";
 import { useForm } from "react-hook-form";
+import useAuth from "../hooks/useAuth";
 
 const Login = () => {
   const [eye, setEye] = useState(true);
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const {signInUser} = useAuth();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleUserLogin = (data) => {
     console.log(data);
+    signInUser(data.email, data.password)
+    .then(result=>{
+      console.log(result.user)
+      navigate(location?.state || '/')
+    })
+    .catch(error=>{
+      console.log(error)
+    })
   };
 
   return (
@@ -91,6 +102,7 @@ const Login = () => {
         <div className="text-center mt-4 text-primary text-sm">
           Dont have an account?{" "}
           <Link
+          state={location?.state}
             to={"/auth/register"}
             className="text-secondary font-semibold underline underline-offset-4"
           >
