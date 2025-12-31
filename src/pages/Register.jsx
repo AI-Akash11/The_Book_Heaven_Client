@@ -1,10 +1,20 @@
 import React, { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { Link} from "react-router";
+import { Link } from "react-router";
 import SocialLogin from "../components/auth/SocialLogin";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
   const [eye, setEye] = useState(true);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleRegistration = (data) => {
+    console.log(data);
+  };
 
   return (
     <div className="py-5 px-2 md:py-20 lg:py-30 flex justify-center items-center">
@@ -13,47 +23,102 @@ const Register = () => {
           Register
         </h2>
 
-        <form className="flex flex-col gap-1 relative">
+        <form
+          onSubmit={handleSubmit(handleRegistration)}
+          className="flex flex-col gap-1 relative"
+        >
+          {/* Name */}
           <label className="text-sm  mt-3 ml-1">Name</label>
           <input
             type="text"
-            name="name"
+            {...register("name", {
+              required: "Name is required",
+              minLength: {
+                value: 3,
+                message: "Name must be at least 3 characters",
+              },
+              pattern: {
+                value: /^[A-Za-z\s]+$/,
+                message: "Name can only contain letters",
+              },
+            })}
             placeholder="Enter Your Name"
             className="px-3 py-2 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
           />
+          {errors.name && (
+            <p className="text-error text-sm mt-1 ml-1">
+              {errors.name.message}
+            </p>
+          )}
 
+          {/* Image */}
           <label className="text-sm  mt-3 ml-1">Photo URL</label>
           <input
             type="text"
-            name="photo"
+            {...register("photoURL", {
+              required: true,
+            })}
             placeholder="Enter a photo URL"
             className="px-3 py-2 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
           />
 
+          {/* email */}
           <label className="text-sm  mt-3 ml-1">Email</label>
           <input
             type="email"
-            name="email"
-            placeholder="Email"
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Please enter a valid email address",
+              },
+            })}
+            placeholder="Enter Your Email"
             className="px-3 py-2 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
           />
+          {errors.email && (
+            <p className="text-error text-sm mt-1 ml-1">
+              {errors.email.message}
+            </p>
+          )}
 
-          <label className="text-sm  mt-3 ml-1">Password</label>
-          <input
-            type={eye ? "password" : "text"}
-            name="password"
-            placeholder="Password"
-            className="px-3 py-2 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
-          />
-          <div
-            onClick={() => {
-              setEye(!eye);
-            }}
-            className="absolute right-4 top-74.5 text-xl cursor-pointer"
-          >
-            {eye ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+          {/* Password */}
+          <label className="text-sm mt-3 ml-1">Password</label>
+
+          <div className="relative">
+            <input
+              type={eye ? "password" : "text"}
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 8,
+                  message: "Password must be at least 8 characters long",
+                },
+                pattern: {
+                  value:
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?#&])[A-Za-z\d@$!%*?#&]{8,}$/,
+                  message:
+                    "Password must include uppercase, lowercase, number, and special character",
+                },
+              })}
+              placeholder="Create a Password"
+              className="w-full px-3 py-2 pr-10 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
+            />
+
+            {errors.password && (
+              <p className="text-error text-sm mt-1 ml-1">
+                {errors.password.message}
+              </p>
+            )}
+
+            <button
+              type="button"
+              onClick={() => setEye(!eye)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-xl text-gray-600 cursor-pointer"
+            >
+              {eye ? <FaEyeSlash /> : <FaEye />}
+            </button>
           </div>
-
 
           <button
             type="submit"
@@ -79,7 +144,7 @@ const Register = () => {
           <hr className="grow border-t border-gray-400" />
         </div>
 
-            <SocialLogin></SocialLogin>
+        <SocialLogin></SocialLogin>
       </div>
     </div>
   );
