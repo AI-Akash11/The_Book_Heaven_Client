@@ -2,9 +2,20 @@ import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { Link } from "react-router";
 import SocialLogin from "../components/auth/SocialLogin";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
   const [eye, setEye] = useState(true);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const handleUserLogin = (data) => {
+    console.log(data);
+  };
 
   return (
     <div className="py-5 px-2 md:py-10 lg:py-40 flex justify-center items-center">
@@ -13,31 +24,57 @@ const Login = () => {
           Login
         </h2>
 
-        <form className="flex flex-col gap-1 relative">
+        <form
+          onSubmit={handleSubmit(handleUserLogin)}
+          className="flex flex-col gap-1 relative"
+        >
+          {/* email */}
           <label className="text-sm  mt-3 ml-1">Email</label>
+
           <input
             type="email"
-            name="email"
-            placeholder="Email"
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Please enter a valid email address",
+              },
+            })}
+            placeholder="Enter Your Email"
             className="px-3 py-2 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
           />
+          {errors.email && (
+            <p className="text-error text-sm mt-1 ml-1">
+              {errors.email.message}
+            </p>
+          )}
 
-          <label className="text-sm  mt-3 ml-1">Password</label>
-          <input
-            type={eye ? "password" : "text"}
-            name="password"
-            placeholder="Password"
-            className="px-3 py-2 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
-          />
+          {/* Password */}
+          <label className="text-sm mt-3 ml-1">Password</label>
 
-          <div
-            onClick={() => {
-              setEye(!eye);
-            }}
-            className="absolute right-4 top-32.5 text-xl cursor-pointer"
-          >
-            {eye ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
+          <div className="relative">
+            <input
+              type={eye ? "password" : "text"}
+              {...register("password", {
+                required: "Password is required"
+              })}
+              placeholder="Enter Your Password"
+              className="w-full px-3 py-2 pr-10 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
+            />
+            <button
+              type="button"
+              aria-label={eye ? "Show password" : "Hide password"}
+              onClick={() => setEye(!eye)}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-xl text-gray-600 cursor-pointer"
+            >
+              {eye ? <FaEyeSlash /> : <FaEye />}
+            </button>
           </div>
+          {errors.password && (
+            <p className="text-error text-sm mt-1 ml-1">
+              {errors.password.message}
+            </p>
+          )}
 
           <p className="text-center mt-4 text-primary text-sm hover:underline hover:underline-offset-2">
             Forgot your password?
@@ -67,7 +104,7 @@ const Login = () => {
           <hr className="grow border-t border-gray-400" />
         </div>
 
-            <SocialLogin></SocialLogin>
+        <SocialLogin></SocialLogin>
       </div>
     </div>
   );

@@ -105,12 +105,6 @@ const Register = () => {
               className="w-full px-3 py-2 pr-10 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
             />
 
-            {errors.password && (
-              <p className="text-error text-sm mt-1 ml-1">
-                {errors.password.message}
-              </p>
-            )}
-
             <button
               type="button"
               onClick={() => setEye(!eye)}
@@ -119,6 +113,12 @@ const Register = () => {
               {eye ? <FaEyeSlash /> : <FaEye />}
             </button>
           </div>
+
+          {errors.password && (
+            <p className="text-error text-sm mt-1 ml-1">
+              {errors.password.message}
+            </p>
+          )}
 
           <button
             type="submit"
