@@ -9,10 +9,10 @@ const Navbar = () => {
 
   const handleLogOut = () => {
     logOut()
-    .then()
-    .catch(error=>{
-      console.log(error)
-    })
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const links = (
@@ -32,7 +32,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-primary shadow-sm">
+    <div className="navbar bg-primary shadow-sm px-2">
       <div className="navbar-start">
         <div className="dropdown text-accent">
           <div
@@ -72,12 +72,30 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <button
-            onClick={handleLogOut}
-            className="btn btn-accent text-white hover:bg-amber-500 font-semibold"
-          >
-            Logout
-          </button>
+          <div className="dropdown dropdown-hover dropdown-end z-100">
+            <img
+              src={user.photoURL}
+              tabIndex={0}
+              role="button"
+              className="m-1 rounded-full max-w-10"
+            ></img>
+            <ul
+              tabIndex="-1"
+              className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 p-2 shadow-sm"
+            >
+              <li>
+                <p className="font-semibold">Name: {user.displayName}</p>
+              </li>
+              <li>
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-accent text-white hover:bg-amber-500 font-semibold"
+                >
+                  Logout
+                </button>
+              </li>
+            </ul>
+          </div>
         ) : (
           <div className="flex gap-3">
             <Link

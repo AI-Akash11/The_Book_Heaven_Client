@@ -99,6 +99,7 @@ const Register = () => {
 
           <input
             type="file"
+            accept="image/*"
             {...register("photo", {
               required: "Profile image is required",
             })}
