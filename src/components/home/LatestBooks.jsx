@@ -8,7 +8,6 @@ const LatestBooks = () => {
   const axios = useAxios();
   const [latestBooks, setLatestbooks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false)
 
   useEffect(()=>{
     axios.get('/latest-books')
@@ -17,7 +16,6 @@ const LatestBooks = () => {
         setLoading(false)
     })
     .catch(error=>{
-        setError(true)
         console.log(error)
     })
   },[axios])
@@ -25,14 +23,9 @@ const LatestBooks = () => {
   if(loading){
     return <Loading></Loading>
   }
-
-  if(error){
-    return <ErrorPage></ErrorPage>
-  }
-
   
   return (
-    <div className="my-20 w-[90%] mx-auto">
+    <div className="my-10 w-[90%] mx-auto">
       <h2 className="text-5xl font-bold text-secondary mb-2 text-center">
         Latest Books
       </h2>

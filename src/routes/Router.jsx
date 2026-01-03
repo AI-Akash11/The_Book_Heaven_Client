@@ -9,6 +9,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import PrivateRoute from "./PrivateRoute";
+import BookDetails from "../pages/BookDetails";
 
 export const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
             {
                 path: '/my-books',
                 element: <PrivateRoute><MyBooks></MyBooks></PrivateRoute>
+            },
+            {
+                path: '/book/:id',
+                element: <PrivateRoute><BookDetails></BookDetails></PrivateRoute>
             }
         ]
     },
