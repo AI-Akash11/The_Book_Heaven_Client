@@ -19,13 +19,11 @@ const Register = () => {
 
 
   const handleRegistration = (data) => {
-    console.log(data);
     const profileImage = data.photo[0]
 
 
     registerUser(data.email, data.password)
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
         // image hosting
         const formData = new FormData();
         formData.append('image', profileImage);
@@ -35,12 +33,14 @@ const Register = () => {
         axios.post(image_API_URL, formData)
         .then(res=>{
           console.log('after image upload',res.data.data.url)
+          const imageURL = res.data.data.url;
 
-          // update user profile here
+
           const userProfile = {
             displayName: data.name,
-            photoURL: res.data.data.url
+            photoURL: imageURL
           }
+          console.log(userProfile)
 
           updateUserProfile(userProfile)
           .then(()=>{
