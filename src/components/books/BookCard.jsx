@@ -49,16 +49,16 @@ const BookCard = ({ bookData }) => {
 
         {/* Info */}
         <div className="flex-1 flex flex-col justify-end space-y-2">
-          <h3 className="font-semibold text-lg text-primary line-clamp-2">
+          <h3 className="font-bold md:text-lg text-primary line-clamp-2">
             {title}
           </h3>
 
-          <p className="text-sm text-gray-600">
+          <p className="text-xs md:text-sm text-gray-600">
             by <span className="font-medium">{author}</span>
           </p>
 
-          <div className="flex items-center justify-between">
-            <span className="px-2 py-1 text-xs font-medium text-blue-800 bg-blue-50 rounded-full">
+          <div className="flex flex-col md:flex-row items-start justify-start md:items-center md:justify-between gap-1">
+            <span className="px-2 py-1 text-[10px] md:text-xs font-medium text-blue-800 bg-blue-50 rounded-xl">
               {genre}
             </span>
             {renderStars(rating)}
