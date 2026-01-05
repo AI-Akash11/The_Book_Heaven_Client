@@ -10,7 +10,7 @@ const AllBooks = () => {
   const {data: allBooks = [], isLoading, isError} = useQuery({
     queryKey: ['allBooks'],
     queryFn: async () => {
-        const res = await axios.get('/books')
+        const res = await axios.get('/all-books')
         return res.data
     }
   })
