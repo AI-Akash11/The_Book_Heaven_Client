@@ -1,27 +1,27 @@
-import { useEffect, useState } from "react";
 import useAxios from "../../hooks/useAxios";
 import BookCard from "../books/BookCard";
 import Loading from "../shared/Loading";
 import ErrorPage from "../shared/ErrorPage";
+import { useQuery } from "@tanstack/react-query";
 
 const LatestBooks = () => {
   const axios = useAxios();
-  const [latestBooks, setLatestbooks] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  useEffect(()=>{
-    axios.get('/latest-books')
-    .then(res=>{
-        setLatestbooks(res.data)
-        setLoading(false)
-    })
-    .catch(error=>{
-        console.log(error)
-    })
-  },[axios])
+  const {data: latestBooks = [], isLoading, isError} = useQuery({
+    queryKey: ['latestBooks'],
+    queryFn: async()=>{
+        const res = await axios.get('/latest-books')
+        return res.data
+    }
+  })
 
-  if(loading){
+
+  if(isLoading){
     return <Loading></Loading>
+  }
+
+  if (isError){
+    return <ErrorPage></ErrorPage>
   }
   
   return (
