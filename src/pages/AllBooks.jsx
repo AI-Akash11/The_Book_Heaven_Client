@@ -5,12 +5,12 @@ import { useQuery } from "@tanstack/react-query";
 import ErrorPage from "../components/shared/ErrorPage";
 
 const AllBooks = () => {
-  const axios = useAxios();
+  const axiosInstance = useAxios();
 
   const {data: allBooks = [], isLoading, isError} = useQuery({
     queryKey: ['allBooks'],
     queryFn: async () => {
-        const res = await axios.get('/all-books')
+        const res = await axiosInstance.get('/all-books')
         return res.data
     }
   })

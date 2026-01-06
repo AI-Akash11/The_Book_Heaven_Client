@@ -9,12 +9,12 @@ import BookCard from '../components/books/BookCard';
 
 const MyBooks = () => {
     const {user} = useAuth()
-    const axios = useAxios()
+    const axiosInstance = useAxios()
 
     const {data: myBooks = [], isLoading, isError} = useQuery({
         queryKey: ['myBooks', user?.email],
         queryFn: async () => {
-            const res = await axios.get(`/my-books?email=${user.email}`)
+            const res = await axiosInstance.get(`/my-books?email=${user.email}`)
             return res.data
         }
     })
