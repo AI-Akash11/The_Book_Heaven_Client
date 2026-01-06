@@ -117,7 +117,7 @@ const BookDetails = () => {
                       to={`/update-book/${id}`}
                       className="btn btn-secondary flex-1 gap-2"
                     >
-                      <FaEdit /> Edit
+                      <FaEdit /> Update
                     </Link>
                     <button
                       onClick={handleDelete}
