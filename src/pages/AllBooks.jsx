@@ -26,9 +26,12 @@ const AllBooks = () => {
 
   return (
     <div className="my-5 md:my-10 w-[90%] mx-auto">
-      <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-2 text-center">
-        All Books
-      </h2>
+<h2 className="text-4xl md:text-5xl font-bold text-secondary mb-2 text-center">
+  All Books{" "}
+  <span className="inline-flex items-center justify-center px-4 py-1.5 text-4xl md:text-5xl font-black bg-secondary text-white rounded-full shadow-md">
+    {allBooks.length}
+  </span>
+</h2>
 
       <h4 className=" text-gray-500 mb-10 text-center">
         Explore our complete collection and find your next adventure.

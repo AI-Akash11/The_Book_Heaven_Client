@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../components/auth/SocialLogin";
 import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
+import Loading from "../components/shared/Loading";
 
 const Login = () => {
   const [eye, setEye] = useState(true);
@@ -12,9 +13,10 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const {signInUser} = useAuth();
+  const {signInUser, loading} = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
+  console.log(loading)
 
   const handleUserLogin = (data) => {
     console.log(data);
@@ -27,6 +29,10 @@ const Login = () => {
       console.log(error)
     })
   };
+
+  if(loading){
+    return <Loading></Loading>
+  }
 
   return (
     <div className="py-5 px-2 md:py-10 lg:py-40 flex justify-center items-center">

@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import Loading from '../components/shared/Loading';
 import ErrorPage from '../components/shared/ErrorPage';
 import BookError from '../components/shared/BookError';
-import BookCard from '../components/books/BookCard';
+import BookTable from '../components/books/BookTable';
 
 const MyBooks = () => {
     const {user} = useAuth()
@@ -36,11 +36,7 @@ const MyBooks = () => {
         Manage and review the books you’ve added.
       </h2>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {myBooks.map((bookData) => (
-          <BookCard key={bookData._id} bookData={bookData} />
-        ))}
-      </div>
+        <BookTable allBooks={myBooks} />
     </div>
     );
 };

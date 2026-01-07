@@ -5,6 +5,7 @@ import SocialLogin from "../components/auth/SocialLogin";
 import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
+import Loading from "../components/shared/Loading";
 
 const Register = () => {
   const [eye, setEye] = useState(true);
@@ -13,7 +14,7 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { registerUser, updateUserProfile } = useAuth();
+  const { registerUser, updateUserProfile, loading } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -59,6 +60,10 @@ const Register = () => {
       });
   };
 
+    if(loading){
+    return <Loading></Loading>
+  }
+  
   return (
     <div className="py-5 px-2 md:py-20 lg:py-30 flex justify-center items-center">
       <div className="bg-base-200 p-8 rounded-2xl shadow-[9px_9px_16px_#a3b1c6,-9px_-9px_16px_#ffffff] w-100 md:w-145">
