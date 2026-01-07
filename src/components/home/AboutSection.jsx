@@ -3,21 +3,21 @@ import { Link } from 'react-router';
 
 const AboutSection = () => {
   return (
-    <section className="py-20 mb-10 bg-gradient-to-b from-[#9282f7] to-amber-200 rounded-xl">
+    <section className="py-20 mb-10 bg-gradient-to-b from-info to-warning text-base-content rounded-xl">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
 
-          <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-base-content mb-6">
             About The Book Haven
           </h2>
 
-          <p className="text-lg md:text-xl text-primary mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl text-base-content/70 mb-8 leading-relaxed">
             Your cozy corner of the internet where stories come alive.
           </p>
 
-          <div className="prose prose-lg mx-auto text-primary space-y-5">
+          <div className="prose prose-lg mx-auto text-base-content/70 space-y-5">
             <p>
-              Welcome to <span className="font-semibold text-secondary">The Book Haven</span> — a
+              Welcome to <span className="font-semibold text-primary">The Book Haven</span> — a
               community-driven platform for book lovers to discover, share, and celebrate the joy of
               reading.
             </p>
@@ -33,7 +33,7 @@ const AboutSection = () => {
           </div>
 
           <div className="mt-10">
-            <Link to={'/all-books'} className="px-8 py-3 bg-secondary text-white font-medium text-lg rounded-lg hover:bg-blue-500 transition shadow-md">
+            <Link to={'/all-books'} className="px-8 py-3 bg-primary text-error font-medium text-lg rounded-lg hover:bg-primary/90 transition shadow-md">
               Explore All Books
             </Link>
           </div>

@@ -18,56 +18,46 @@ const Register = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const handleRegistration = async (data) => {
+    try {
+      const profileImage = data.photo[0];
 
-  const handleRegistration = (data) => {
-    const profileImage = data.photo[0]
+      await registerUser(data.email, data.password);
 
+      // image hosting
+      const formData = new FormData();
+      formData.append("image", profileImage);
 
-    registerUser(data.email, data.password)
-      .then(() => {
-        // image hosting
-        const formData = new FormData();
-        formData.append('image', profileImage);
+      const image_API_URL = `https://api.imgbb.com/1/upload?key=${
+        import.meta.env.VITE_image_host_key
+      }`;
 
-        const image_API_URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`
+      const imageRes = await axios.post(image_API_URL, formData);
 
-        axios.post(image_API_URL, formData)
-        .then(res=>{
-          console.log('after image upload',res.data.data.url)
-          const imageURL = res.data.data.url;
+      const imageURL = imageRes.data.data.url;
 
+      const userProfile = {
+        displayName: data.name,
+        photoURL: imageURL,
+      };
 
-          const userProfile = {
-            displayName: data.name,
-            photoURL: imageURL
-          }
-          console.log(userProfile)
+      await updateUserProfile(userProfile);
 
-          updateUserProfile(userProfile)
-          .then(()=>{
-            console.log('user profile updated')
-            navigate(location?.state || '/')
-          })
-          .catch(error=>{
-            console.log(error)
-          })
-        })
-
-
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      navigate(location?.state || "/");
+      
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-    if(loading){
-    return <Loading></Loading>
+  if (loading) {
+    return <Loading></Loading>;
   }
-  
+
   return (
     <div className="py-5 px-2 md:py-20 lg:py-30 flex justify-center items-center">
-      <div className="bg-base-200 p-8 rounded-2xl shadow-[9px_9px_16px_#a3b1c6,-9px_-9px_16px_#ffffff] w-100 md:w-145">
-        <h2 className="text-center text-5xl text-primary font-black mb-10">
+      <div className="bg-base-200 border border-base-300 p-8 rounded-2xl shadow-lg w-100 md:w-145">
+        <h2 className="text-center text-5xl text-base-content font-black mb-10">
           Register
         </h2>
 
@@ -91,10 +81,10 @@ const Register = () => {
               },
             })}
             placeholder="Enter Your Name"
-            className="px-3 py-2 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
+            className="w-full px-3 py-2 rounded-xl bg-base-100 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
           />
           {errors.name && (
-            <p className="text-error text-sm mt-1 ml-1">
+            <p className="text-red-400 text-sm mt-1 ml-1">
               {errors.name.message}
             </p>
           )}
@@ -108,11 +98,11 @@ const Register = () => {
             {...register("photo", {
               required: "Profile image is required",
             })}
-            className="file-input w-full bg-[#e0e5ec] pr-3 rounded-xl shadow-inner shadow-[#a3b1c6]/70 outline-none border-gray-200"
+            className="file-input w-full bg-base-100 border border-base-300 rounded-xl shadow-inner outline-none focus:border-accent"
           />
 
           {errors.photo && (
-            <p className="text-error text-sm mt-1 ml-1">
+            <p className="text-red-400 text-sm mt-1 ml-1">
               {errors.photo.message}
             </p>
           )}
@@ -129,10 +119,10 @@ const Register = () => {
               },
             })}
             placeholder="Enter Your Email"
-            className="px-3 py-2 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
+            className="w-full px-3 py-2 rounded-xl bg-base-100 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
           />
           {errors.email && (
-            <p className="text-error text-sm mt-1 ml-1">
+            <p className="text-red-400 text-sm mt-1 ml-1">
               {errors.email.message}
             </p>
           )}
@@ -157,47 +147,47 @@ const Register = () => {
                 },
               })}
               placeholder="Create a Password"
-              className="w-full px-3 py-2 pr-10 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
+              className="w-full px-3 py-2 rounded-xl bg-base-100 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
             />
 
             <button
               type="button"
               onClick={() => setEye(!eye)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-xl text-gray-600 cursor-pointer"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-xl text-base-content cursor-pointer"
             >
               {eye ? <FaEyeSlash /> : <FaEye />}
             </button>
           </div>
 
           {errors.password && (
-            <p className="text-error text-sm mt-1 ml-1">
+            <p className="text-red-400 text-sm mt-1 ml-1">
               {errors.password.message}
             </p>
           )}
 
           <button
             type="submit"
-            className="mt-5 w-full py-3 rounded-xl bg-secondary shadow-[5px_5px_10px_#a3b1c6,-5px_-5px_10px_#ffffff] font-bold hover:bg-accent transition text-xl text-white"
+            className="mt-5 w-full py-3 rounded-xl bg-primary text-error font-bold text-xl shadow-md hover:shadow-lg active:shadow-sm transition"
           >
             Register
           </button>
         </form>
 
-        <div className="text-center mt-4 text-primary text-sm">
+        <div className="text-center mt-4 text-base-content/80 text-sm">
           Already have an account?{" "}
           <Link
-          state={location.state}
+            state={location.state}
             to={"/auth/login"}
-            className="text-accent font-semibold underline underline-offset-4"
+            className="text-primary font-semibold underline underline-offset-4"
           >
             Login
           </Link>
         </div>
 
         <div className="flex items-center px-15 my-4">
-          <hr className="grow border-t border-gray-400" />
-          <span className="mx-4 text-primary">or</span>
-          <hr className="grow border-t border-gray-400" />
+          <hr className="grow border-t border-base-content/70" />
+          <span className="mx-4 text-base-content/90">or</span>
+          <hr className="grow border-t border-base-content/70" />
         </div>
 
         <SocialLogin></SocialLogin>

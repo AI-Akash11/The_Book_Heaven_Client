@@ -25,7 +25,7 @@ const FeaturedBook = () => {
   const rating = parseFloat(featuredBook.rating || 0);
 
   return (
-    <section className="pt-12 pb-16 md:pb-20 bg-gradient-to-r from-secondary to-primary text-white mb-20 rounded-xl">
+    <section className="pt-12 pb-16 md:pb-20 bg-gradient-to-r from-base-200 to-stone-600 text-base-content mb-20 rounded-xl">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 md:mb-12">
@@ -45,7 +45,7 @@ const FeaturedBook = () => {
                       "https://via.placeholder.com/400x600?text=Reverend+Insanity")
                   }
                 />
-                <div className="absolute -top-3 -right-3 bg-accent text-primary font-bold px-4 py-1 rounded-full text-sm shadow-lg">
+                <div className="absolute -top-3 -right-3 bg-amber-400 text-primary font-bold px-4 py-1 rounded-full text-sm shadow-lg">
                   This Week
                 </div>
               </div>
@@ -57,7 +57,7 @@ const FeaturedBook = () => {
                   {featuredBook.title}
                 </h3>
                 <p className="text-lg text-accent mb-4">
-                  by {featuredBook.author}
+                  <span className="text-base-content/70">by</span> {featuredBook.author}
                 </p>
               </div>
 
@@ -73,11 +73,11 @@ const FeaturedBook = () => {
                     <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
                   </svg>
                 ))}
-                <span className="ml-2 text-teal-100">({rating})</span>
+                <span className="ml-2 text-base-content/80">({rating})</span>
               </div>
 
               <div
-                className="flex-1 overflow-y-auto pr-2 text-teal-50 text-base leading-relaxed"
+                className="flex-1 overflow-y-auto pr-2 text-base-content/70 leading-relaxed"
                 style={{ maxHeight: "12rem" }}
               >
                 <p className="whitespace-pre-line">
@@ -88,13 +88,13 @@ const FeaturedBook = () => {
               <div className="flex flex-col sm:flex-row gap-3 mt-6">
                 <Link
                   to={`/book-details/${id}`}
-                  className="px-6 py-2.5 bg-accent text-primary font-semibold rounded-lg transition shadow text-center border-2 border-accent hover:border-white hover:bg-amber-500 hover:scale-105 duration-300"
+                  className="px-6 py-2.5 bg-accent text-error font-semibold rounded-lg transition shadow text-center border-2 border-accent hover:border-white hover:bg-accent/90 hover:scale-105 duration-300"
                 >
                   Read Now
                 </Link>
                 <button
                   onClick={handleWishlist}
-                  className="px-6 py-2.5 border-2 border-white hover:border-primary text-white font-semibold rounded-lg hover:bg-white hover:text-primary hover:scale-105 transition duration-300"
+                  className="px-6 py-2.5 border-2 border-white hover:border-primary text-base-content font-semibold rounded-lg bg-info hover:bg-info/90 hover:scale-103 transition duration-300"
                 >
                   Add to Wishlist
                 </button>

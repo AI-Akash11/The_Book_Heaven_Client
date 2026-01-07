@@ -54,7 +54,7 @@ const BookTable = ({ allBooks }) => {
     <div className="overflow-x-auto shadow-lg rounded-lg">
       <table className="table w-full">
         {/* Table Head - larger */}
-        <thead className="bg-secondary text-white hidden md:table-header-group">
+        <thead className="bg-base-300 text-base-content hidden md:table-header-group">
           <tr>
             <th className="text-left">Cover</th>
             <th className="text-left">Book Name</th>
@@ -63,7 +63,7 @@ const BookTable = ({ allBooks }) => {
             <th className="text-center">
               <button
                 onClick={handleSort}
-                className="flex items-center gap-2 mx-auto hover:text-accent transition-colors"
+                className="flex items-center gap-2 mx-auto hover:text-base-content/70 transition-colors"
               >
                 Rating
                 {sortOrder === "asc" ? (
@@ -82,7 +82,7 @@ const BookTable = ({ allBooks }) => {
         {/* Table Head - smaller */}
         <thead className="md:hidden">
           <tr>
-            <th colSpan="2" className="bg-secondary text-white text-center py-3">
+            <th colSpan="2" className="bg-base-300 text-base-content text-center py-3">
               <div className="flex justify-between items-center px-4">
                 <span className="font-semibold">All Books</span>
                 <button
@@ -108,7 +108,7 @@ const BookTable = ({ allBooks }) => {
           {displayBooks.map((book) => (
             <React.Fragment key={book._id}>
               {/* Desktop  */}
-              <tr className="hover:bg-base-200 hover:scale-101 transition duration-300 hidden md:table-row">
+              <tr className="bg-base-200 hover:bg-base-300 transition duration-300 hidden md:table-row">
                 {/* Cover Image */}
                 <td>
                   <div className="w-16 h-20">
@@ -123,19 +123,19 @@ const BookTable = ({ allBooks }) => {
 
                 {/* Book Name */}
                 <td>
-                  <div className="font-semibold text-gray-800 line-clamp-2">
+                  <div className="font-semibold text-lg text-base-content line-clamp-2">
                     {book.title}
                   </div>
                 </td>
 
                 {/* Author */}
                 <td>
-                  <div className="text-gray-600">{book.author}</div>
+                  <div className="text-base-content/70">{book.author}</div>
                 </td>
 
                 {/* Genre */}
                 <td>
-                  <span className="text-gray-600">
+                  <span className="text-base-content/70">
                     {book.genre}
                   </span>
                 </td>
@@ -152,7 +152,7 @@ const BookTable = ({ allBooks }) => {
                   <div className="flex justify-center">
                     <Link
                       to={`/book/${book._id}`}
-                      className="btn btn-secondary btn-sm text-white"
+                      className="btn btn-primary btn-sm text-error"
                     >
                       View Details
                     </Link>
@@ -178,17 +178,17 @@ const BookTable = ({ allBooks }) => {
                     <div className="flex-1 flex flex-col justify-between">
                       {/* Title */}
                       <div>
-                        <h3 className="font-semibold text-base text-gray-800 line-clamp-2 mb-1">
+                        <h3 className="font-semibold text-base-content line-clamp-2 mb-1">
                           {book.title}
                         </h3>
 
                         {/* Author */}
-                        <p className="text-sm text-gray-600 mb-2">
+                        <p className="text-sm text-base-content/70 mb-2">
                           by <span className="font-medium">{book.author}</span>
                         </p>
 
                         {/* Genre */}
-                        <span className="inline-block px-2 py-1 text-xs font-medium text-blue-800 bg-blue-50 rounded-full mb-2">
+                        <span className="inline-block px-2 py-1 text-xs font-medium text-error bg-accent rounded-full mb-2">
                           {book.genre}
                         </span>
                       </div>
@@ -201,7 +201,7 @@ const BookTable = ({ allBooks }) => {
                         {/* Button */}
                         <Link
                           to={`/book/${book._id}`}
-                          className="btn btn-secondary btn-xs text-white whitespace-nowrap"
+                          className="btn btn-primary btn-xs text-error whitespace-nowrap"
                         >
                           View Details
                         </Link>

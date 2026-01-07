@@ -115,11 +115,11 @@ const BookForm = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg p-6 md:p-8">
-      <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-2">
+    <div className="max-w-3xl mx-auto bg-base-200 rounded-lg shadow-lg p-6 md:p-8">
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-base-content mb-2">
         Add New Book
       </h2>
-      <p className="text-center text-gray-600 mb-8">
+      <p className="text-center text-base-content/70 mb-8">
         Fill in the details to add a book to the collection
       </p>
 
@@ -127,8 +127,8 @@ const BookForm = () => {
         {/* Title */}
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-semibold text-gray-700">
-              Book Title <span className="text-red-500">*</span>
+            <span className="label-text font-semibold text-base-content">
+              Book Title <span className="text-red-600">*</span>
             </span>
           </label>
           <input
@@ -145,14 +145,14 @@ const BookForm = () => {
             disabled={loading}
           />
           {errors.title && (
-            <p className="text-error text-sm mt-1">{errors.title.message}</p>
+            <p className="text-red-400 text-sm mt-1">{errors.title.message}</p>
           )}
         </div>
 
         {/* Author*/}
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-semibold text-gray-700">
+            <span className="label-text font-semibold text-base-content">
               Author Name <span className="text-red-500">*</span>
             </span>
           </label>
@@ -170,7 +170,7 @@ const BookForm = () => {
             disabled={loading}
           />
           {errors.author && (
-            <p className="text-error text-sm mt-1">{errors.author.message}</p>
+            <p className="text-red-400 text-sm mt-1">{errors.author.message}</p>
           )}
         </div>
 
@@ -179,7 +179,7 @@ const BookForm = () => {
           {/* Genre */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-gray-700">
+              <span className="label-text font-semibold text-base-content">
                 Genre <span className="text-red-500">*</span>
               </span>
             </label>
@@ -211,14 +211,14 @@ const BookForm = () => {
               <option value="Other">Other</option>
             </select>
             {errors.genre && (
-              <p className="text-error text-sm mt-1">{errors.genre.message}</p>
+              <p className="text-red-400 text-sm mt-1">{errors.genre.message}</p>
             )}
           </div>
 
           {/* Rating */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-gray-700">
+              <span className="label-text font-semibold text-base-content">
                 Rating (1-5) <span className="text-red-500">*</span>
               </span>
             </label>
@@ -241,7 +241,7 @@ const BookForm = () => {
               disabled={loading}
             />
             {errors.rating && (
-              <p className="text-error text-sm mt-1">{errors.rating.message}</p>
+              <p className="text-red-400 text-sm mt-1">{errors.rating.message}</p>
             )}
           </div>
         </div>
@@ -249,7 +249,7 @@ const BookForm = () => {
         {/* Summary */}
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-semibold text-gray-700">
+            <span className="label-text font-semibold text-base-content">
               Summary <span className="text-red-500">*</span>
             </span>
           </label>
@@ -270,10 +270,10 @@ const BookForm = () => {
             disabled={loading}
           />
           {errors.summary && (
-            <p className="text-error text-sm mt-1">{errors.summary.message}</p>
+            <p className="text-red-400 text-sm mt-1">{errors.summary.message}</p>
           )}
           <label className="label">
-            <span className="label-text-alt text-gray-500">
+            <span className="label-text-alt text-base-content/70">
               {watch("summary")?.length || 0} / 200 characters
             </span>
           </label>
@@ -282,7 +282,7 @@ const BookForm = () => {
         {/* Description */}
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-semibold text-gray-700">
+            <span className="label-text font-semibold text-base-content">
               Description <span className="text-red-500">*</span>
             </span>
           </label>
@@ -303,12 +303,12 @@ const BookForm = () => {
             disabled={loading}
           />
           {errors.description && (
-            <p className="text-error text-sm mt-1">
+            <p className="text-red-400 text-sm mt-1">
               {errors.description.message}
             </p>
           )}
           <label className="label">
-            <span className="label-text-alt text-gray-500">
+            <span className="label-text-alt text-base-content/70">
               {watch("description")?.length || 0} / 1000 characters
             </span>
           </label>
@@ -317,7 +317,7 @@ const BookForm = () => {
         {/* Cover Image Upload */}
         <div className="form-control">
           <label className="label">
-            <span className="label-text font-semibold text-gray-700">
+            <span className="label-text font-semibold text-base-content">
               Cover Image <span className="text-red-500">*</span>
             </span>
           </label>
@@ -330,11 +330,11 @@ const BookForm = () => {
               }`}
             >
               <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 hover:border-secondary transition-colors duration-300 text-center">
-                <FiUpload className="mx-auto text-4xl text-gray-400 mb-2" />
-                <p className="text-sm text-gray-600 mb-1">
+                <FiUpload className="mx-auto text-4xl text-base-content/60 mb-2" />
+                <p className="text-sm text-base-content/60 mb-1">
                   Click to upload cover image
                 </p>
-                <p className="text-xs text-gray-500">PNG, JPG up to 5MB</p>
+                <p className="text-xs text-base-content/70">PNG, JPG up to 5MB</p>
               </div>
               <input
                 type="file"
@@ -358,7 +358,7 @@ const BookForm = () => {
             {/* Image Preview */}
             {imagePreview && (
               <div className="flex-shrink-0">
-                <p className="text-sm font-semibold text-gray-700 mb-2">
+                <p className="text-sm font-semibold text-base-content/70 mb-2">
                   Preview:
                 </p>
                 <div className="w-32 h-48 border-2 border-gray-200 rounded-lg overflow-hidden">
@@ -372,7 +372,7 @@ const BookForm = () => {
             )}
           </div>
           {errors.coverImage && (
-            <p className="text-error text-sm mt-1">
+            <p className="text-red-400 text-sm mt-1">
               {errors.coverImage.message}
             </p>
           )}
@@ -382,7 +382,7 @@ const BookForm = () => {
         <div className="pt-4">
           <button
             type="submit"
-            className="btn btn-secondary w-full text-white text-lg hover:bg-secondary/90 transition-colors duration-300"
+            className="btn btn-primary w-full text-error text-lg hover:bg-primary/90 transition-colors duration-300"
             disabled={loading}
           >
             {loading ? (

@@ -2,10 +2,13 @@ import { Link, NavLink } from "react-router";
 import Loading from "./Loading";
 import Logo from "../../utils/Logo";
 import useAuth from "../../hooks/useAuth";
-import { button, div } from "framer-motion/client";
+import useTheme from "../../hooks/useTheme";
+import { FiMoon, FiSun } from "react-icons/fi";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
+  const { theme, toggleTheme } = useTheme();
+  console.log(theme);
 
   const handleLogOut = () => {
     logOut()
@@ -32,7 +35,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-primary shadow-sm px-2">
+    <div className="navbar bg-base-200 shadow-sm px-2 sticky top-0 z-10">
       <div className="navbar-start">
         <div className="dropdown text-accent">
           <div
@@ -58,7 +61,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex="-1"
-            className="menu menu-sm dropdown-content bg-base-100 font-bold rounded-box z-1 mt-3 w-48 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-300 text-base-content font-bold rounded-box z-2 mt-3 w-48 p-2 shadow"
           >
             {links}
           </ul>
@@ -67,12 +70,37 @@ const Navbar = () => {
           <Logo></Logo>
         </div>
       </div>
-      <div className="navbar-center text-white hidden lg:flex">
+
+      <div className="navbar-center text-base-content hidden lg:flex">
         <ul className="menu font-bold menu-horizontal px-1">{links}</ul>
       </div>
+
       <div className="navbar-end">
+        {/* Theme Toggle */}
+        <label className="flex items-center gap-2 cursor-pointer">
+          <FiSun
+            className={`text-xl transition-colors duration-300 ${
+              theme === "light" ? "text-yellow-400" : "text-gray-400"
+            }`}
+          />
+
+          <input
+            type="checkbox"
+            className="toggle toggle-sm bg-base-200 border-base-content"
+            checked={theme === "dark"}
+            onChange={toggleTheme}
+            aria-label="Toggle theme"
+          />
+
+          <FiMoon
+            className={`text-xl transition-colors duration-300 ${
+              theme === "dark" ? "text-indigo-400" : "text-gray-400"
+            }`}
+          />
+        </label>
+
         {user ? (
-          <div className="dropdown dropdown-hover dropdown-end z-100">
+          <div className="dropdown dropdown-hover dropdown-end z-15 ml-4">
             <img
               src={user.photoURL}
               tabIndex={0}
@@ -81,7 +109,7 @@ const Navbar = () => {
             ></img>
             <ul
               tabIndex="-1"
-              className="dropdown-content menu bg-base-100 rounded-box z-1 w-40 p-2 shadow-sm"
+              className="dropdown-content menu bg-base-100 rounded-box z-15 w-40 p-2 shadow-sm"
             >
               <li>
                 <p className="font-semibold">Name: {user.displayName}</p>
@@ -89,7 +117,7 @@ const Navbar = () => {
               <li>
                 <button
                   onClick={handleLogOut}
-                  className="btn btn-accent text-white hover:bg-amber-500 font-semibold"
+                  className="btn btn-accent text-base-content hover:bg-accent/90 font-semibold"
                 >
                   Logout
                 </button>
@@ -100,13 +128,13 @@ const Navbar = () => {
           <div className="flex gap-3">
             <Link
               to={"/auth/login"}
-              className="btn btn-accent text-white hover:bg-amber-500 font-semibold"
+              className="btn btn-accent text-error hover:bg-accent/90 font-semibold ml-4"
             >
               Login
             </Link>
             <Link
               to={"/auth/register"}
-              className="btn btn-secondary hover:bg-blue-500 text-white font-semibold"
+              className="btn btn-primary hover:bg-primary/90 text-error font-semibold"
             >
               Register
             </Link>

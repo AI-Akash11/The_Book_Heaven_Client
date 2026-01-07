@@ -92,12 +92,12 @@ const Banner = () => {
       </div>
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
 
       {/* Navigation Arrows */}
       <button
         onClick={goToPrevious}
-        className="absolute left-2 sm:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-20 
+        className="absolute left-2 sm:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-1 
                    bg-white/10 hover:bg-white/20 backdrop-blur-sm
                    text-white p-2 sm:p-3 rounded-full
                    transition-all duration-300 hover:scale-110
@@ -109,7 +109,7 @@ const Banner = () => {
 
       <button
         onClick={goToNext}
-        className="absolute right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-20 
+        className="absolute right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-1 
                    bg-white/10 hover:bg-white/20 backdrop-blur-sm
                    text-white p-2 sm:p-3 rounded-full
                    transition-all duration-300 hover:scale-110
@@ -123,13 +123,13 @@ const Banner = () => {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto"
+        className="relative z-1 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto"
       >
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 
+          className="text-3xl md:text-4xl lg:text-5xl 
                      font-bold text-amber-400 drop-shadow-2xl 
                      mb-3 sm:mb-4 md:mb-5 leading-tight tracking-tight flex items-center justify-center gap-3"
         >
@@ -140,7 +140,7 @@ const Banner = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="text-sm sm:text-base md:text-lg lg:text-xl 
+          className="text-sm md:text-lg
                      text-gray-100 max-w-3/4 md:max-w-2xl mx-auto leading-relaxed 
                      mb-8 sm:mb-10 md:mb-12 drop-shadow-lg"
         >
@@ -158,7 +158,7 @@ const Banner = () => {
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-accent hover:bg-amber-500 text-primary font-semibold 
+              className="bg-accent hover:bg-accent/90 text-base-content font-semibold 
                          px-6 md:px-8 py-3 md:py-3.5 rounded-lg shadow-xl 
                          transition-all duration-300 
                          text-sm md:text-base lg:text-lg w-1/2 md:w-full sm:w-auto
@@ -173,7 +173,7 @@ const Banner = () => {
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-secondary hover:bg-blue-500 text-white font-semibold 
+              className="bg-info hover:info/90 text-base-content font-semibold 
                          px-6 md:px-8 py-3 md:py-3.5 rounded-lg shadow-xl 
                          transition-all duration-300 
                          text-sm md:text-base lg:text-lg w-1/2 md:w-full sm:w-auto
@@ -188,7 +188,7 @@ const Banner = () => {
 
       {/* Slide Indicators */}
       <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 
-                      flex gap-2 z-20">
+                      flex gap-2 z-1">
         {images.map((_, i) => (
           <motion.button
             key={i}
@@ -200,8 +200,8 @@ const Banner = () => {
             whileTap={{ scale: 0.9 }}
             className={`transition-all duration-300 rounded-full backdrop-blur-sm ${
               i === index
-                ? "bg-secondary w-8 sm:w-10 md:w-12 h-2 sm:h-2.5"
-                : "bg-white/40 w-2 sm:w-2.5 h-2 sm:h-2.5 hover:bg-secondary"
+                ? "bg-primary w-8 sm:w-10 md:w-12 h-2 sm:h-2.5"
+                : "bg-white/40 w-2 sm:w-2.5 h-2 sm:h-2.5 hover:bg-primary"
             }`}
             aria-label={`Go to slide ${i + 1}`}
           />
@@ -210,7 +210,7 @@ const Banner = () => {
 
       {!isPaused && (
         <motion.div
-          className="absolute top-0 left-0 h-1 bg-amber-400 z-30"
+          className="absolute top-0 left-0 h-1 bg-accent z-1"
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
           transition={{ duration: 5, ease: "linear" }}

@@ -156,7 +156,7 @@ const UpdateBook = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-error mb-4">
+          <h2 className="text-2xl font-bold text-base-content mb-4">
             Error Loading Book
           </h2>
           <button onClick={() => navigate(-1)} className="btn btn-secondary">
@@ -169,11 +169,11 @@ const UpdateBook = () => {
 
   return (
     <div className="my-10 w-[90%] max-w-3xl mx-auto">
-      <div className="bg-white rounded-lg shadow-lg p-6 md:p-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-secondary mb-2">
+      <div className="bg-base-200 rounded-lg shadow-lg p-6 md:p-8">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-base-content mb-2">
           Update Book
         </h2>
-        <p className="text-center text-gray-600 mb-8">
+        <p className="text-center text-base-content/80 mb-8">
           Update the details of "{bookData.title}"
         </p>
 
@@ -181,7 +181,7 @@ const UpdateBook = () => {
           {/* Title */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-gray-700">
+              <span className="label-text font-semibold text-base-content">
                 Book Title <span className="text-red-500">*</span>
               </span>
             </label>
@@ -199,14 +199,14 @@ const UpdateBook = () => {
               disabled={loading}
             />
             {errors.title && (
-              <p className="text-error text-sm mt-1">{errors.title.message}</p>
+              <p className="text-red-400 text-sm mt-1">{errors.title.message}</p>
             )}
           </div>
 
           {/* Author */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-gray-700">
+              <span className="label-text font-semibold text-base-content">
                 Author Name <span className="text-red-500">*</span>
               </span>
             </label>
@@ -224,7 +224,7 @@ const UpdateBook = () => {
               disabled={loading}
             />
             {errors.author && (
-              <p className="text-error text-sm mt-1">{errors.author.message}</p>
+              <p className="text-red-400 text-sm mt-1">{errors.author.message}</p>
             )}
           </div>
 
@@ -232,7 +232,7 @@ const UpdateBook = () => {
             {/* Genre */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-semibold text-gray-700">
+                <span className="label-text font-semibold text-base-content">
                   Genre <span className="text-red-500">*</span>
                 </span>
               </label>
@@ -265,14 +265,14 @@ const UpdateBook = () => {
                 <option value="Other">Other</option>
               </select>
               {errors.genre && (
-                <p className="text-error text-sm mt-1">{errors.genre.message}</p>
+                <p className="text-red-400 text-sm mt-1">{errors.genre.message}</p>
               )}
             </div>
 
             {/* Rating */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text font-semibold text-gray-700">
+                <span className="label-text font-semibold text-base-content">
                   Rating (1-5) <span className="text-red-500">*</span>
                 </span>
               </label>
@@ -295,7 +295,7 @@ const UpdateBook = () => {
                 disabled={loading}
               />
               {errors.rating && (
-                <p className="text-error text-sm mt-1">{errors.rating.message}</p>
+                <p className="text-red-400 text-sm mt-1">{errors.rating.message}</p>
               )}
             </div>
           </div>
@@ -303,7 +303,7 @@ const UpdateBook = () => {
           {/* Summary */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-gray-700">
+              <span className="label-text font-semibold text-base-content">
                 Summary <span className="text-red-500">*</span>
               </span>
             </label>
@@ -324,10 +324,10 @@ const UpdateBook = () => {
               disabled={loading}
             />
             {errors.summary && (
-              <p className="text-error text-sm mt-1">{errors.summary.message}</p>
+              <p className="text-red-400 text-sm mt-1">{errors.summary.message}</p>
             )}
             <label className="label">
-              <span className="label-text-alt text-gray-500">
+              <span className="label-text-alt text-base-content/70">
                 {watch("summary")?.length || 0} / 200 characters
               </span>
             </label>
@@ -336,7 +336,7 @@ const UpdateBook = () => {
           {/* Description */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-gray-700">
+              <span className="label-text font-semibold text-base-content">
                 Description <span className="text-red-500">*</span>
               </span>
             </label>
@@ -357,12 +357,12 @@ const UpdateBook = () => {
               disabled={loading}
             />
             {errors.description && (
-              <p className="text-error text-sm mt-1">
+              <p className="text-red-400 text-sm mt-1">
                 {errors.description.message}
               </p>
             )}
             <label className="label">
-              <span className="label-text-alt text-gray-500">
+              <span className="label-text-alt text-base-content/70">
                 {watch("description")?.length || 0} / 1000 characters
               </span>
             </label>
@@ -371,10 +371,10 @@ const UpdateBook = () => {
           {/* Cover Image */}
           <div className="form-control">
             <label className="label">
-              <span className="label-text font-semibold text-gray-700">
+              <span className="label-text font-semibold text-base-content">
                 Cover Image
               </span>
-              <span className="label-text-alt text-gray-500">
+              <span className="label-text-alt text-base-content/70">
                 Leave empty to keep current image
               </span>
             </label>
@@ -386,11 +386,11 @@ const UpdateBook = () => {
                 }`}
               >
                 <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 hover:border-secondary transition-colors duration-300 text-center">
-                  <FiUpload className="mx-auto text-4xl text-gray-400 mb-2" />
-                  <p className="text-sm text-gray-600 mb-1">
+                  <FiUpload className="mx-auto text-4xl text-base-content/60 mb-2" />
+                  <p className="text-sm text-base-content/70 mb-1">
                     Click to upload new image
                   </p>
-                  <p className="text-xs text-gray-500">PNG, JPG up to 5MB</p>
+                  <p className="text-xs text-base-content/60">PNG, JPG up to 5MB</p>
                 </div>
                 <input
                   type="file"
@@ -404,7 +404,7 @@ const UpdateBook = () => {
               {/* Image Preview */}
               {imagePreview && (
                 <div className="flex-shrink-0">
-                  <p className="text-sm font-semibold text-gray-700 mb-2">
+                  <p className="text-sm font-semibold text-base-content/80 mb-2">
                     Preview:
                   </p>
                   <div className="w-32 h-48 border-2 border-gray-200 rounded-lg overflow-hidden">
@@ -424,14 +424,14 @@ const UpdateBook = () => {
             <button
               type="button"
               onClick={() => navigate(-1)}
-              className="btn btn-outline flex-1"
+              className="btn btn-primary text-error flex-1"
               disabled={loading}
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="btn btn-secondary flex-1 text-white"
+              className="btn btn-accent flex-1 text-base-content"
               disabled={loading}
             >
               {loading ? (

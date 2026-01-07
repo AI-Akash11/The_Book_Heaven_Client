@@ -6,42 +6,51 @@
 }
 
 
-/* light theme */
+@plugin "daisyui/theme" {
+  name: "dark";
+
+  --color-primary: #e5dcc5;      /* parchment light */
+  --color-secondary: #9ca3af;    /* soft gray */
+  --color-accent: #f59e0b;       /* classic library gold */
+  --color-neutral: #1c1917;      /* deep wood black */
+  --color-info: #4b5563;
+  --color-warning: #f59e0b; 
+
+  --color-base-100: #121212;     /* true reading dark */
+  --color-base-200: #1c1917;     /* card background */
+  --color-base-300: #292524;     /* borders / separators */
+
+  --color-base-content: #f5f3ef; /* warm readable text */
+  --color-error: #1f2933;
+}
+
+
+
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
 
-  --color-primary: #1f2937;
-  --color-secondary: #6d5ef3;
-  --color-accent: #e8c547;
-  --color-neutral: #f5f5f0;
-  --color-base-100: #fafaf7;
-  --color-base-200: #ffffff;
-  --color-base-300: #e5e7eb;
-  --color-base-content: #1f2937; 
+  --color-primary: #2c3e50;    /* deep ink blue */
+  --color-secondary: #6b7280;  /* muted slate gray */
+  --color-accent: #f59e0b;     /* rich burnt brown, stands out on light cards */
+  --color-neutral: #f5f3ef;    /* paper white */
+  --color-info: #dbeafe;
+  --color-warning: #f59e0b; 
 
+  --color-base-100: #fdfcf9;   /* warm page background */
+  --color-base-200: #f3f1eb;   /* subtle paper contrast */
+  --color-base-300: #e6e2d8;   /* divider / card border */
+
+  --color-base-content: #1f2933; /* high-contrast text */
+  --color-error: #f5f3ef;
 }
 
-/* Dark Theme */
-@plugin "daisyui/theme" {
-  name: "dark";
-
-  --color-primary: #f9fafb;
-  --color-secondary: #8b7cf5;
-  --color-accent: #ffd966;
-  --color-neutral: #2a2721;
-  --color-base-100: #1f2937;
-  --color-base-200: #111827;
-  --color-base-300: #374151;
-  --color-base-content: #f9fafb;
 
 
 
 body {
   font-family: "Inter", sans-serif;
   line-height: 1.7;
-  background-color: #e5e7eb;
-  color: #1f2937;
 }
 
 h1,

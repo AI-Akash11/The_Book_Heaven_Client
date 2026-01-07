@@ -35,9 +35,9 @@ const Login = () => {
   }
 
   return (
-    <div className="py-5 px-2 md:py-10 lg:py-40 flex justify-center items-center">
-      <div className="bg-base-200 p-8 rounded-2xl shadow-[9px_9px_16px_#a3b1c6,-9px_-9px_16px_#ffffff] w-100 md:w-125">
-        <h2 className="text-center text-primary text-5xl font-black mb-10">
+    <div className="py-5 px-2 md:py-10 lg:py-40 flex justify-center items-center bg-base-100">
+      <div className="bg-base-200 border border-base-300 p-8 rounded-2xl shadow-lg w-100 md:w-125">
+        <h2 className="text-center text-base-content text-5xl font-black mb-10">
           Login
         </h2>
 
@@ -58,10 +58,10 @@ const Login = () => {
               },
             })}
             placeholder="Enter Your Email"
-            className="px-3 py-2 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
+            className="w-full px-3 py-2 rounded-xl bg-base-100 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
           />
           {errors.email && (
-            <p className="text-error text-sm mt-1 ml-1">
+            <p className="text-red-400 text-sm mt-1 ml-1">
               {errors.email.message}
             </p>
           )}
@@ -76,50 +76,50 @@ const Login = () => {
                 required: "Password is required"
               })}
               placeholder="Enter Your Password"
-              className="w-full px-3 py-2 pr-10 rounded-xl bg-[#e0e5ec] shadow-inner shadow-[#a3b1c6]/70 outline-none"
+              className="w-full px-3 py-2 rounded-xl bg-base-100 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
             />
             <button
               type="button"
               aria-label={eye ? "Show password" : "Hide password"}
               onClick={() => setEye(!eye)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-xl text-gray-600 cursor-pointer"
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-xl text-base-content cursor-pointer"
             >
               {eye ? <FaEyeSlash /> : <FaEye />}
             </button>
           </div>
           {errors.password && (
-            <p className="text-error text-sm mt-1 ml-1">
+            <p className="text-red-400 text-sm mt-1 ml-1">
               {errors.password.message}
             </p>
           )}
 
-          <p className="text-center mt-4 text-primary text-sm hover:underline hover:underline-offset-2">
+          <p className="text-center mt-4 text-base-content/70  text-sm hover:underline hover:underline-offset-2">
             Forgot your password?
           </p>
 
           <button
             type="submit"
-            className="mt-2 w-full py-3 rounded-xl bg-accent shadow-[5px_5px_10px_#a3b1c6,-5px_-5px_10px_#ffffff] font-bold hover:bg-secondary transition text-xl text-white"
+            className="mt-2 w-full py-3 rounded-xl bg-primary text-error font-bold text-xl shadow-md hover:shadow-lg active:shadow-sm transition"
           >
             Login
           </button>
         </form>
 
-        <div className="text-center mt-4 text-primary text-sm">
+        <div className="text-center mt-4 text-base-content/80 text-sm">
           Dont have an account?{" "}
           <Link
           state={location?.state}
             to={"/auth/register"}
-            className="text-secondary font-semibold underline underline-offset-4"
+            className="text-primary font-semibold underline underline-offset-4"
           >
             Register
           </Link>
         </div>
 
         <div className="flex items-center px-15 my-4">
-          <hr className="grow border-t border-gray-400" />
-          <span className="mx-4 text-primary">or</span>
-          <hr className="grow border-t border-gray-400" />
+          <hr className="grow border-t border-base-content/80" />
+          <span className="mx-4 text-base-content/90">or</span>
+          <hr className="grow border-t border-base-content/80" />
         </div>
 
         <SocialLogin></SocialLogin>

@@ -87,19 +87,19 @@ const BookDetails = () => {
   const isOwner = user?.email === bookData?.userEmail;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 to-yellow-100 py-8">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-base-300 py-8">
+      <div className="container mx-auto px-4 md:px-8">
         {/* Back Button */}
         <Link
           to="/all-books"
-          className="inline-flex items-center gap-2 text-secondary hover:text-secondary/80 mb-6 transition-colors"
+          className="inline-flex items-center gap-2 text-base-content/70 hover:text-base-content mb-6 transition-colors"
         >
           <FaArrowLeft />
           <span className="font-medium">Back to All Books</span>
         </Link>
 
         {/* Main Content */}
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
+        <div className="bg-base-200 rounded-2xl shadow-xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 p-6 md:p-10">
             {/* Left: Cover Image */}
             <div className="lg:col-span-1">
@@ -115,13 +115,13 @@ const BookDetails = () => {
                   <div className="mt-6 flex gap-3">
                     <Link
                       to={`/update-book/${id}`}
-                      className="btn btn-secondary flex-1 gap-2"
+                      className="btn btn-accent text-error flex-1 gap-2"
                     >
                       <FaEdit /> Update
                     </Link>
                     <button
                       onClick={handleDelete}
-                      className="btn btn-error flex-1 gap-2 text-white"
+                      className="btn bg-red-600 flex-1 gap-2 text-error"
                     >
                       <FaTrash /> Delete
                     </button>
@@ -134,19 +134,19 @@ const BookDetails = () => {
             <div className="lg:col-span-2 space-y-6">
               {/* Title & Author */}
               <div>
-                <h1 className="text-4xl md:text-5xl font-bold text-primary mb-3 leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold text-base-content mb-3 leading-tight">
                   {bookData.title}
                 </h1>
-                <p className="text-xl text-gray-600">
-                  by <span className="font-semibold text-secondary">{bookData.author}</span>
+                <p className="text-xl text-base-content/70">
+                  by <span className="font-semibold text-base-content/80">{bookData.author}</span>
                 </p>
               </div>
 
               {/* Rating & Genre */}
               <div className="flex flex-wrap items-center gap-4">
                 <div>{renderStars(bookData.rating)}</div>
-                <div className="h-6 w-px bg-gray-300"></div>
-                <span className="px-4 py-2 bg-blue-100 text-secondary rounded-full font-medium">
+                <div className="h-6 w-px bg-gray-400"></div>
+                <span className="px-4 py-2 bg-accent text-base-content/90 rounded-full font-bold">
                   {bookData.genre}
                 </span>
               </div>
@@ -156,16 +156,16 @@ const BookDetails = () => {
 
               {/* Summary */}
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-3">Summary</h2>
-                <p className="text-gray-700 leading-relaxed text-lg whitespace-pre-line">
+                <h2 className="text-2xl font-bold text-base-content mb-3">Summary</h2>
+                <p className="text-base-content/70 leading-relaxed text-lg whitespace-pre-line">
                   {bookData.summary}
                 </p>
               </div>
 
               {/* Description */}
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-3">Description</h2>
-                <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                <h2 className="text-2xl font-bold text-base-content mb-3">Description</h2>
+                <p className="text-base-content/70 leading-relaxed whitespace-pre-line">
                   {bookData.description}
                 </p>
               </div>
@@ -174,17 +174,17 @@ const BookDetails = () => {
               <div className="border-t border-gray-200 pt-6"></div>
 
               {/* Book Info */}
-              <div className="bg-gray-50 rounded-lg p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">Book Information</h3>
+              <div className="bg-base-100 rounded-lg p-6">
+                <h3 className="text-lg font-bold text-base-content mb-4">Book Information</h3>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <FaUser className="text-secondary" />
+                  <div className="flex items-center gap-3 text-base-content/80">
+                    <FaUser className="text-base-content/90" />
                     <span>
                       Added by: <span className="font-semibold">{bookData.userEmail || 'Unknown'}</span>
                     </span>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-700">
-                    <FaCalendar className="text-secondary" />
+                  <div className="flex items-center gap-3 text-base-content/80">
+                    <FaCalendar className="text-base-content/90" />
                     <span>
                       Added on:{' '}
                       <span className="font-semibold">

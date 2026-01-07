@@ -25,12 +25,12 @@ const LatestBooks = () => {
   }
   
   return (
-    <div className="my-10 w-[90%] mx-auto">
-      <h2 className="text-5xl font-bold text-secondary mb-2 text-center">
+    <div className="my-10 lg:my-20 w-[90%] mx-auto">
+      <h2 className="text-5xl font-bold text-base-content mb-2 text-center">
         Latest Books
       </h2>
 
-      <h4 className=" text-gray-500 mb-6 text-center">Explore what’s new on our shelves right now.</h4>
+      <h4 className=" text-base-content/70 mb-6 text-center">Explore what’s new on our shelves right now.</h4>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {latestBooks.map((bookData) => (

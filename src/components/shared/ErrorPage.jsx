@@ -4,10 +4,10 @@ import { Link } from "react-router";
 
 const ErrorPage = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 text-center">
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-blue-100 center">
       <Link
         to={"/"}
-        className=" flex items-center justify-start text-secondary underline pt-2 pl-2"
+        className=" flex items-center justify-start secondary underline pt-2 pl-2"
       >
         <BsArrowLeft />
         Home
@@ -18,10 +18,10 @@ const ErrorPage = () => {
           alt="404 Error"
           className="w-72 md:w-96 mb-8"
         />
-        <h1 className="text-5xl font-extrabold text-primary mb-4">
+        <h1 className="5xl font-extrabold primary mb-4">
           Oops! An Error Occured
         </h1>
-        <p className="text-gray-600 mb-8 max-w-md">
+        <p className="gray-600 mb-8 max-w-md">
           Looks like the page you’re trying to visit doesn’t exist or has been
           moved.
         </p>

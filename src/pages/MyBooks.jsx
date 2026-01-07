@@ -32,7 +32,7 @@ const MyBooks = () => {
     }
     return (
         <div className="my-10 w-[90%] mx-auto">
-      <h2 className="text-4xl font-bold text-primary mb-8 text-center">
+      <h2 className="text-4xl font-bold text-base-content/90 mb-8 text-center">
         Manage and review the books you’ve added.
       </h2>
 

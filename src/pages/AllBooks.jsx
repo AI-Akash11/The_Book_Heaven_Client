@@ -28,18 +28,18 @@ const AllBooks = () => {
     <div className="my-5 md:my-10 w-[90%] mx-auto">
 <h2 className="text-4xl md:text-5xl font-bold text-secondary mb-2 text-center">
   All Books{" "}
-  <span className="inline-flex items-center justify-center px-4 py-1.5 text-4xl md:text-5xl font-black bg-secondary text-white rounded-full shadow-md">
+  <span className="inline-flex items-center justify-center px-4 py-2 text-4xl md:text-5xl font-black bg-secondary text-white rounded-full shadow-md">
     {allBooks.length}
   </span>
 </h2>
 
-      <h4 className=" text-gray-500 mb-10 text-center">
+      <h4 className=" text-base-content/70 mb-10 text-center">
         Explore our complete collection and find your next adventure.
       </h4>
 
       {allBooks.length === 0 ? (
         <div className="text-center py-20">
-          <p className="text-gray-600 text-lg">No books available yet.</p>
+          <p className="text-base-content/70 text-lg">No books available yet.</p>
         </div>
       ) : (
         <BookTable allBooks={allBooks} />

@@ -36,7 +36,7 @@ const BookCard = ({ bookData }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-103 flex flex-col h-full">
+    <div className="bg-base-300 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-103 flex flex-col h-full">
       <div className="px-4 pt-8 pb-4 flex flex-col h-full">
         {/* Cover */}
         <div className="mb-4 flex justify-center">
@@ -49,16 +49,16 @@ const BookCard = ({ bookData }) => {
 
         {/* Info */}
         <div className="flex-1 flex flex-col justify-end space-y-2">
-          <h3 className="font-bold md:text-lg text-primary line-clamp-2">
+          <h3 className="font-bold md:text-lg text-base-content line-clamp-2">
             {title}
           </h3>
 
-          <p className="text-xs md:text-sm text-gray-600">
+          <p className="text-xs md:text-sm text-base-content/70">
             by <span className="font-medium">{author}</span>
           </p>
 
           <div className="flex flex-col md:flex-row items-start justify-start md:items-center md:justify-between gap-1">
-            <span className="px-2 py-1 text-[10px] md:text-xs font-medium text-blue-800 bg-blue-50 rounded-xl">
+            <span className="px-2 py-1 text-[10px] md:text-xs font-medium text-error bg-accent rounded-xl">
               {genre}
             </span>
             {renderStars(rating)}
@@ -68,7 +68,7 @@ const BookCard = ({ bookData }) => {
         {/* Action */}
         <Link
           to={`/book/${id}`}
-          className="block w-full text-center mt-4 px-4 py-2.5 text-sm font-medium text-white bg-secondary rounded-lg hover:bg-accent transition"
+          className="block w-full text-center mt-4 px-4 py-2.5 text-sm font-medium text-error bg-primary rounded-lg hover:bg-accent transition"
         >
           View Details
         </Link>

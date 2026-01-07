@@ -18,9 +18,7 @@ const Loading = ({
         aria-label="Loading"
       />
 
-      <p className="text-sm font-medium text-base-content opacity-80">
-        {message}
-      </p>
+      <p className="sm font-medium base-content opacity-80">{message}</p>
     </div>
   );
 };
