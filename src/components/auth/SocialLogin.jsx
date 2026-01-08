@@ -12,7 +12,6 @@ const SocialLogin = () => {
   const handleSignInGoogle = () =>{
     signInGoogle()
     .then(result=>{
-      console.log(result.user)
       navigate(location?.state || '/')
     })
     .catch(error=>{

@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
 import Loading from "../components/shared/Loading";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const [eye, setEye] = useState(true);
@@ -44,9 +45,14 @@ const Register = () => {
       await updateUserProfile(userProfile);
 
       navigate(location?.state || "/");
-      
+
     } catch (error) {
       console.log(error);
+        Swal.fire({
+          icon: "error",
+          title: "Registration failed",
+          text: "Registration has failed. Please try again",
+        });
     }
   };
 

@@ -1,8 +1,8 @@
 import useAxios from "../../hooks/useAxios";
 import BookCard from "../books/BookCard";
 import Loading from "../shared/Loading";
-import ErrorPage from "../shared/ErrorPage";
 import { useQuery } from "@tanstack/react-query";
+import BookError from "../shared/BookError";
 
 const LatestBooks = () => {
   const axiosInstance = useAxios();
@@ -21,7 +21,7 @@ const LatestBooks = () => {
   }
 
   if (isError){
-    return <ErrorPage></ErrorPage>
+    return <BookError></BookError>
   }
   
   return (

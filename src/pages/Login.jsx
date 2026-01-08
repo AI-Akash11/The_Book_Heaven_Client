@@ -4,7 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router";
 import SocialLogin from "../components/auth/SocialLogin";
 import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
-import Loading from "../components/shared/Loading";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const [eye, setEye] = useState(true);
@@ -13,26 +13,27 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const {signInUser, loading} = useAuth();
+  const { signInUser, loading, setLoading } = useAuth();
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(loading)
 
   const handleUserLogin = (data) => {
-    console.log(data);
     signInUser(data.email, data.password)
-    .then(result=>{
-      console.log(result.user)
-      navigate(location?.state || '/')
-    })
-    .catch(error=>{
-      console.log(error)
-    })
-  };
+      .then((result) => {
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        console.log(error);
 
-  if(loading){
-    return <Loading></Loading>
-  }
+  Swal.fire({
+    icon: "error",
+    title: "Login failed",
+    text: "Invalid email or password",
+  });
+
+  setLoading(false)
+      });
+  };
 
   return (
     <div className="py-5 px-2 md:py-10 lg:py-40 flex justify-center items-center bg-base-100">
@@ -73,7 +74,7 @@ const Login = () => {
             <input
               type={eye ? "password" : "text"}
               {...register("password", {
-                required: "Password is required"
+                required: "Password is required",
               })}
               placeholder="Enter Your Password"
               className="w-full px-3 py-2 rounded-xl bg-base-100 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
@@ -99,16 +100,17 @@ const Login = () => {
 
           <button
             type="submit"
+            disabled={loading}
             className="mt-2 w-full py-3 rounded-xl bg-primary text-error font-bold text-xl shadow-md hover:shadow-lg active:shadow-sm transition"
           >
-            Login
+            {loading ? "Logging in..." : "Login"}
           </button>
         </form>
 
         <div className="text-center mt-4 text-base-content/80 text-sm">
           Dont have an account?{" "}
           <Link
-          state={location?.state}
+            state={location?.state}
             to={"/auth/register"}
             className="text-primary font-semibold underline underline-offset-4"
           >

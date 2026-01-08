@@ -104,7 +104,6 @@ const UpdateBook = () => {
       // update api call
       const response = await axiosInstance.patch(`/update-book/${id}`, updatedBookData);
 
-      console.log("Book updated successfully:", response.data);
 
       Swal.fire({
         icon: "success",

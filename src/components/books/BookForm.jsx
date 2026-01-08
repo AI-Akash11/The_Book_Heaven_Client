@@ -76,7 +76,6 @@ const BookForm = () => {
 
       const response = await axiosInstance.post("/add-book", bookData);
 
-      console.log("Book added successfully:", response.data);
 
       Swal.fire({
         icon: "success",

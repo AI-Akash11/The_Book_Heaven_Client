@@ -8,7 +8,6 @@ import { FiMoon, FiSun } from "react-icons/fi";
 const Navbar = () => {
   const { user, logOut } = useAuth();
   const { theme, toggleTheme } = useTheme();
-  console.log(theme);
 
   const handleLogOut = () => {
     logOut()
