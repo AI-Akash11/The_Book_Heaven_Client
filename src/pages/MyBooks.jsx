@@ -11,7 +11,7 @@ const MyBooks = () => {
     const {user} = useAuth()
     const axiosInstance = useAxios()
 
-    const {data: myBooks = [], isLoading, isError} = useQuery({
+    const {data: myBooks = [], isLoading, isError } = useQuery({
         queryKey: ['myBooks', user?.email],
         queryFn: async () => {
             const res = await axiosInstance.get(`/my-books?email=${user.email}`)

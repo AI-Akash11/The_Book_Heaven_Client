@@ -41,7 +41,7 @@ const Navbar = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-secondary lg:hidden"
+            className="btn btn-ghost text-base-content lg:hidden"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@ const Navbar = () => {
         </label>
 
         {user ? (
-          <div className="dropdown dropdown-hover dropdown-end z-15 ml-4">
+          <div className="dropdown dropdown-hover dropdown-end z-15 ml-2">
             <img
               src={user.photoURL}
               tabIndex={0}
@@ -128,7 +128,7 @@ const Navbar = () => {
           <div className="flex gap-3">
             <Link
               to={"/auth/login"}
-              className="btn btn-accent text-error hover:bg-accent/90 font-semibold ml-4"
+              className="btn btn-accent text-error hover:bg-accent/90 font-semibold ml-2"
             >
               Login
             </Link>

@@ -84,7 +84,7 @@ const BookTable = ({ allBooks }) => {
           <tr>
             <th colSpan="2" className="bg-base-300 text-base-content text-center py-3">
               <div className="flex justify-between items-center px-4">
-                <span className="font-semibold">All Books</span>
+                <span className="font-semibold">All Books ({sortedBooks.length})</span>
                 <button
                   onClick={handleSort}
                   className="flex items-center gap-2 text-sm"
