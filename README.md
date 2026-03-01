@@ -5,6 +5,16 @@ A modern digital library web application where users can explore, add, and manag
 ## 🌐 Live Link
 
  - https://the-book-heaven-51983.web.app/
+ - 
+
+## Client Repo:
+
+ - https://the-book-heaven-51983.web.app/
+ - 
+
+## Server Repo:
+
+ - https://the-book-heaven-51983.web.app/
 
 ## 📋 Project Overview
 
