@@ -3,7 +3,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className=" bg-base-200 text-base-content pt-10 px-10 pb-4 text-center space-y-4">
+    <div className="bg-base-200">
+    <div className="container text-base-content pt-10 px-10 pb-4 text-center space-y-4">
       <div className="footer sm:footer-horizontal">
         <nav>
           <h6 className="footer-title">Services</h6>
@@ -27,6 +28,7 @@ const Footer = () => {
         </nav>
       </div>
       <small className="text-xs">© 2025 The Book Haven. All rights reserved.</small>
+    </div>
     </div>
   );
 };
