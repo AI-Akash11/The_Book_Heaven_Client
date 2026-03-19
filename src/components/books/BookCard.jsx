@@ -1,6 +1,7 @@
 import React from "react";
 import { FaStar } from "react-icons/fa";
 import { Link } from "react-router";
+import FadeIn from "../shared/FadeIn";
 
 const BookCard = ({ bookData }) => {
   const id = bookData?._id;
@@ -36,8 +37,9 @@ const BookCard = ({ bookData }) => {
   };
 
   return (
-    <div className="bg-base-300 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-103 flex flex-col h-full">
-      <div className="px-4 pt-8 pb-4 flex flex-col h-full">
+    <FadeIn delay={0.1} duration={0.6} className="h-full">
+      <div className="bg-base-300 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-105 flex flex-col h-full group">
+        <div className="px-4 pt-8 pb-4 flex flex-col h-full">
         {/* Cover */}
         <div className="mb-4 flex justify-center">
           <img
@@ -74,6 +76,7 @@ const BookCard = ({ bookData }) => {
         </Link>
       </div>
     </div>
+  </FadeIn>
   );
 };
 

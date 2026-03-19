@@ -9,6 +9,7 @@ import Loading from "../components/shared/Loading";
 import Swal from "sweetalert2";
 import SectionTitle from "../components/shared/SectionTitle";
 import SectionSubTitle from "../components/shared/SectionSubTitle";
+import FadeIn from "../components/shared/FadeIn";
 
 const Register = () => {
   const [eye, setEye] = useState(true);
@@ -63,7 +64,7 @@ const Register = () => {
 
   return (
     <div className="py-5 px-2 md:py-10 flex justify-center items-center">
-      <div className="bg-base-200 border border-base-300 p-8 rounded-2xl shadow-lg w-100 md:w-145">
+      <FadeIn delay={0.2} duration={0.6} className="bg-base-200 border border-base-300 p-8 rounded-2xl shadow-lg w-100 md:w-145">
         <SectionTitle>Register</SectionTitle>
         <SectionSubTitle>Welcome to The Book Heaven.</SectionSubTitle>
 
@@ -197,7 +198,7 @@ const Register = () => {
         </div>
 
         <SocialLogin></SocialLogin>
-      </div>
+      </FadeIn>
     </div>
   );
 };

@@ -60,7 +60,6 @@ const MyBooks = () => {
         ) : (
           <BookTable allBooks={myBooks} />
         )}
-        <BookTable allBooks={myBooks} />
       </section>
     </Container>
   );

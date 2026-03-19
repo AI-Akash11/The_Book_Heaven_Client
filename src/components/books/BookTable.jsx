@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaStar, FaSort, FaSortUp, FaSortDown } from "react-icons/fa";
 import { Link } from "react-router";
+import FadeIn from "../shared/FadeIn";
 
 const BookTable = ({ allBooks }) => {
   const [sortedBooks, setSortedBooks] = useState(allBooks);
@@ -51,7 +52,7 @@ const BookTable = ({ allBooks }) => {
   const displayBooks = sortedBooks.length > 0 ? sortedBooks : allBooks;
 
   return (
-    <div className="overflow-x-auto shadow-lg rounded-lg">
+    <FadeIn delay={0.2} duration={0.8} className="overflow-x-auto shadow-lg rounded-lg">
       <table className="table w-full">
         {/* Table Head - larger */}
         <thead className="bg-base-300 text-base-content hidden md:table-header-group">
@@ -214,7 +215,7 @@ const BookTable = ({ allBooks }) => {
           ))}
         </tbody>
       </table>
-    </div>
+    </FadeIn>
   );
 };
 

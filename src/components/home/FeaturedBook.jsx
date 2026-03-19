@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import Container from "../shared/Container";
 import SectionSubTitle from "../shared/SectionSubTitle";
 import SectionTitle from "../shared/SectionTitle";
+import FadeIn from "../shared/FadeIn";
 
 const FeaturedBook = () => {
   const axiosInstance = useAxios();
@@ -62,7 +63,7 @@ const FeaturedBook = () => {
               </SectionSubTitle>
 
               <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="w-full md:w-2/5 flex justify-center">
+                <FadeIn direction="left" delay={0.2} duration={0.8} className="w-full md:w-2/5 flex justify-center">
                   <div className="relative group w-[280px] h-[420px] md:w-[320px] md:h-[480px] rounded-lg overflow-hidden">
                     <img
                       src={featuredBook.coverImage}
@@ -78,9 +79,9 @@ const FeaturedBook = () => {
                       Featured
                     </div>
                   </div>
-                </div>
+                </FadeIn>
 
-                <div className="w-full md:w-3/5 flex flex-col h-full">
+                <FadeIn direction="right" delay={0.4} duration={0.8} className="w-full md:w-3/5 flex flex-col h-full">
                   <div>
                     <h3 className="text-2xl md:text-3xl font-bold mb-1">
                       {featuredBook.title}
@@ -133,7 +134,7 @@ const FeaturedBook = () => {
                       Add to Wishlist
                     </button>
                   </div>
-                </div>
+                </FadeIn>
               </div>
             </div>
           </div>

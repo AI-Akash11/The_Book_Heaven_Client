@@ -15,6 +15,7 @@ import Loading from "../components/shared/Loading";
 import Swal from "sweetalert2";
 import BookError from "../components/shared/BookError";
 import { useForm } from "react-hook-form";
+import Container from "../components/shared/Container";
 
 const BookDetails = () => {
   const [postingComment, setPostingComment] = useState(false);
@@ -207,7 +208,7 @@ const BookDetails = () => {
 
   return (
     <div className="min-h-screen bg-base-300 py-8">
-      <div className="container mx-auto px-4 md:px-8">
+      <Container>
         {/* Back Button */}
         <Link
           to="/all-books"
@@ -487,7 +488,7 @@ const BookDetails = () => {
             </div>
           )}
         </div>
-      </div>
+      </Container>
     </div>
   );
 };

@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import SectionTitle from "../shared/SectionTitle";
 import SectionSubTitle from "../shared/SectionSubTitle";
+import FadeIn from "../shared/FadeIn";
 
 const BookForm = () => {
   const [imagePreview, setImagePreview] = useState(null);
@@ -116,7 +117,7 @@ const BookForm = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-base-200 rounded-lg shadow-lg p-6 md:p-8">
+    <FadeIn delay={0.2} duration={0.6} className="max-w-3xl mx-auto bg-base-200 rounded-lg shadow-lg p-6 md:p-8">
       <SectionTitle>
         Add New Book
       </SectionTitle>
@@ -396,7 +397,7 @@ const BookForm = () => {
           </button>
         </div>
       </form>
-    </div>
+    </FadeIn>
   );
 };
 
