@@ -7,6 +7,8 @@ import AuthProvider from "./contexts/AuthContext/AuthProvider";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ThemeProvider from "./contexts/ThemeContext/ThemeProvider";
 
+import { ReactLenis } from 'lenis/react';
+
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
@@ -14,7 +16,9 @@ createRoot(document.getElementById("root")).render(
     <ThemeProvider>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
-          <RouterProvider router={router} />
+          <ReactLenis root>
+            <RouterProvider router={router} />
+          </ReactLenis>
         </AuthProvider>
       </QueryClientProvider>
     </ThemeProvider>
