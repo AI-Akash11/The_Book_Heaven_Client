@@ -7,6 +7,8 @@ import useAuth from "../hooks/useAuth";
 import axios from "axios";
 import Loading from "../components/shared/Loading";
 import Swal from "sweetalert2";
+import SectionTitle from "../components/shared/SectionTitle";
+import SectionSubTitle from "../components/shared/SectionSubTitle";
 
 const Register = () => {
   const [eye, setEye] = useState(true);
@@ -45,14 +47,13 @@ const Register = () => {
       await updateUserProfile(userProfile);
 
       navigate(location?.state || "/");
-
     } catch (error) {
       console.log(error);
-        Swal.fire({
-          icon: "error",
-          title: "Registration failed",
-          text: "Registration has failed. Please try again",
-        });
+      Swal.fire({
+        icon: "error",
+        title: "Registration failed",
+        text: "Registration has failed. Please try again",
+      });
     }
   };
 
@@ -61,18 +62,17 @@ const Register = () => {
   }
 
   return (
-    <div className="py-5 px-2 md:py-20 lg:py-30 flex justify-center items-center">
+    <div className="py-5 px-2 md:py-10 flex justify-center items-center">
       <div className="bg-base-200 border border-base-300 p-8 rounded-2xl shadow-lg w-100 md:w-145">
-        <h2 className="text-center text-5xl text-base-content font-black mb-10">
-          Register
-        </h2>
+        <SectionTitle>Register</SectionTitle>
+        <SectionSubTitle>Welcome to The Book Heaven.</SectionSubTitle>
 
         <form
           onSubmit={handleSubmit(handleRegistration)}
           className="flex flex-col gap-1 relative"
         >
           {/* Name */}
-          <label className="text-sm  mt-3 ml-1">Name</label>
+          <label className="text-sm ml-1">Name</label>
           <input
             type="text"
             {...register("name", {
@@ -87,7 +87,7 @@ const Register = () => {
               },
             })}
             placeholder="Enter Your Name"
-            className="w-full px-3 py-2 rounded-xl bg-base-100 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
+            className="w-full px-3 py-2 rounded-xl bg-base-300 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
           />
           {errors.name && (
             <p className="text-red-400 text-sm mt-1 ml-1">
@@ -104,7 +104,7 @@ const Register = () => {
             {...register("photo", {
               required: "Profile image is required",
             })}
-            className="file-input w-full bg-base-100 border border-base-300 rounded-xl shadow-inner outline-none focus:border-accent"
+            className="file-input w-full bg-base-300 border border-base-300 rounded-xl shadow-inner outline-none focus:border-accent"
           />
 
           {errors.photo && (
@@ -125,7 +125,7 @@ const Register = () => {
               },
             })}
             placeholder="Enter Your Email"
-            className="w-full px-3 py-2 rounded-xl bg-base-100 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
+            className="w-full px-3 py-2 rounded-xl bg-base-300 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
           />
           {errors.email && (
             <p className="text-red-400 text-sm mt-1 ml-1">
@@ -153,7 +153,7 @@ const Register = () => {
                 },
               })}
               placeholder="Create a Password"
-              className="w-full px-3 py-2 rounded-xl bg-base-100 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
+              className="w-full px-3 py-2 rounded-xl bg-base-300 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
             />
 
             <button

@@ -3,26 +3,25 @@ import useAuth from "../../hooks/useAuth";
 import { useLocation, useNavigate } from "react-router";
 
 const SocialLogin = () => {
-
   const { signInGoogle } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
 
-
-  const handleSignInGoogle = () =>{
+  const handleSignInGoogle = () => {
     signInGoogle()
-    .then(result=>{
-      navigate(location?.state || '/')
-    })
-    .catch(error=>{
-      console.log(error)
-    })
-  }
+      .then((result) => {
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
-    <button 
-    onClick={handleSignInGoogle}
-    className="btn bg-base-300 text-base-content border-white w-full py-6 text-lg rounded-xl">
+    <button
+      onClick={handleSignInGoogle}
+      className="btn bg-base-300 text-base-content border-primary w-full py-6 text-lg rounded-xl"
+    >
       <svg
         aria-label="Google logo"
         width="24"

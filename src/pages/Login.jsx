@@ -5,6 +5,8 @@ import SocialLogin from "../components/auth/SocialLogin";
 import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
+import SectionTitle from "../components/shared/SectionTitle";
+import SectionSubTitle from "../components/shared/SectionSubTitle";
 
 const Login = () => {
   const [eye, setEye] = useState(true);
@@ -25,29 +27,28 @@ const Login = () => {
       .catch((error) => {
         console.log(error);
 
-  Swal.fire({
-    icon: "error",
-    title: "Login failed",
-    text: "Invalid email or password",
-  });
+        Swal.fire({
+          icon: "error",
+          title: "Login failed",
+          text: "Invalid email or password",
+        });
 
-  setLoading(false)
+        setLoading(false);
       });
   };
 
   return (
-    <div className="py-5 px-2 md:py-10 lg:py-40 flex justify-center items-center bg-base-100">
+    <div className="py-5 px-2 md:py-10 flex justify-center items-center bg-base-100">
       <div className="bg-base-200 border border-base-300 p-8 rounded-2xl shadow-lg w-100 md:w-125">
-        <h2 className="text-center text-base-content text-5xl font-black mb-10">
-          Login
-        </h2>
+        <SectionTitle>Login</SectionTitle>
+        <SectionSubTitle>Welcome back User.</SectionSubTitle>
 
         <form
           onSubmit={handleSubmit(handleUserLogin)}
           className="flex flex-col gap-1 relative"
         >
           {/* email */}
-          <label className="text-sm  mt-3 ml-1">Email</label>
+          <label className="text-sm ml-1">Email</label>
 
           <input
             type="email"
@@ -59,7 +60,7 @@ const Login = () => {
               },
             })}
             placeholder="Enter Your Email"
-            className="w-full px-3 py-2 rounded-xl bg-base-100 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
+            className="w-full px-3 py-2 rounded-xl bg-base-300 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
           />
           {errors.email && (
             <p className="text-red-400 text-sm mt-1 ml-1">
@@ -77,7 +78,7 @@ const Login = () => {
                 required: "Password is required",
               })}
               placeholder="Enter Your Password"
-              className="w-full px-3 py-2 rounded-xl bg-base-100 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
+              className="w-full px-3 py-2 rounded-xl bg-base-300 border border-base-300 shadow-inner outline-none focus:border-accent focus:ring-1 focus:ring-accent/40"
             />
             <button
               type="button"

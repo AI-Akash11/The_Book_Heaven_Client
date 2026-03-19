@@ -6,6 +6,8 @@ import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
+import SectionTitle from "../shared/SectionTitle";
+import SectionSubTitle from "../shared/SectionSubTitle";
 
 const BookForm = () => {
   const [imagePreview, setImagePreview] = useState(null);
@@ -115,13 +117,12 @@ const BookForm = () => {
 
   return (
     <div className="max-w-3xl mx-auto bg-base-200 rounded-lg shadow-lg p-6 md:p-8">
-      <h2 className="text-3xl md:text-4xl font-bold text-center text-base-content mb-2">
+      <SectionTitle>
         Add New Book
-      </h2>
-      <p className="text-center text-base-content/70 mb-8">
-        Fill in the details to add a book to the collection
-      </p>
-
+      </SectionTitle>
+        <SectionSubTitle>
+          Fill in the details to add a book to the collection
+        </SectionSubTitle>
       <form onSubmit={handleSubmit(handleAddBook)} className="space-y-6">
         {/* Title */}
         <div className="form-control">
