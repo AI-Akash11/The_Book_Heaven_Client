@@ -100,8 +100,7 @@ const Banner = () => {
         className="absolute left-2 sm:left-4 lg:left-6 top-1/2 -translate-y-1/2 z-1 
                    bg-white/10 hover:bg-white/20 backdrop-blur-sm
                    text-white p-2 sm:p-3 rounded-full
-                   transition-all duration-300 hover:scale-110
-                   border border-white/20"
+                   transition-all duration-300 hover:scale-105 active:scale-95"
         aria-label="Previous slide"
       >
         <FiChevronLeft className="text-xl sm:text-2xl" />
@@ -112,8 +111,7 @@ const Banner = () => {
         className="absolute right-2 sm:right-4 lg:right-6 top-1/2 -translate-y-1/2 z-1 
                    bg-white/10 hover:bg-white/20 backdrop-blur-sm
                    text-white p-2 sm:p-3 rounded-full
-                   transition-all duration-300 hover:scale-110
-                   border border-white/20"
+                   transition-all duration-300 hover:scale-105 active:scale-95"
         aria-label="Next slide"
       >
         <FiChevronRight className="text-xl sm:text-2xl" />
@@ -155,33 +153,21 @@ const Banner = () => {
                      justify-center items-center"
         >
           <Link to="/all-books" className="w-full sm:w-auto">
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-accent hover:bg-accent/90 text-base-content font-semibold 
-                         px-6 md:px-8 py-3 md:py-3.5 rounded-lg shadow-xl 
-                         transition-all duration-300 
-                         text-sm md:text-base lg:text-lg w-1/2 md:w-full sm:w-auto
-                         hover:shadow-2xl hover:shadow-amber-500/50
-                         border-2 border-accent hover:border-white"
+            <button
+              className="btn-accent-cta px-6 md:px-8 py-3 md:py-3.5 
+                         text-sm md:text-base lg:text-lg w-full sm:w-auto h-auto"
             >
               Explore Books
-            </motion.button>
+            </button>
           </Link>
 
           <Link to="/add-book" className="w-full sm:w-auto">
-            <motion.button
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-info hover:info/90 text-base-content font-semibold 
-                         px-6 md:px-8 py-3 md:py-3.5 rounded-lg shadow-xl 
-                         transition-all duration-300 
-                         text-sm md:text-base lg:text-lg w-1/2 md:w-full sm:w-auto
-                         backdrop-blur-sm
-                         border-2 border-secondary hover:border-white"
+            <button
+              className="btn-primary-cta px-6 md:px-8 py-3 md:py-3.5 
+                         text-sm md:text-base lg:text-lg w-full sm:w-auto h-auto"
             >
               Add Book
-            </motion.button>
+            </button>
           </Link>
         </motion.div>
       </motion.div>
@@ -190,15 +176,13 @@ const Banner = () => {
       <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 
                       flex gap-2 z-1">
         {images.map((_, i) => (
-          <motion.button
+          <button
             key={i}
             onClick={() => {
               setDirection(i > index ? 1 : -1);
               setIndex(i);
             }}
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-            className={`transition-all duration-300 rounded-full backdrop-blur-sm ${
+            className={`transition-all duration-300 rounded-full backdrop-blur-sm hover:scale-105 active:scale-95 ${
               i === index
                 ? "bg-primary w-8 sm:w-10 md:w-12 h-2 sm:h-2.5"
                 : "bg-white/40 w-2 sm:w-2.5 h-2 sm:h-2.5 hover:bg-primary"

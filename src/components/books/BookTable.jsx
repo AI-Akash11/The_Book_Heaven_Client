@@ -152,7 +152,7 @@ const BookTable = ({ allBooks }) => {
                   <div className="flex justify-center">
                     <Link
                       to={`/book/${book._id}`}
-                      className="btn btn-primary btn-sm text-error"
+                      className="btn-primary-cta btn-sm"
                     >
                       View Details
                     </Link>
@@ -201,7 +201,7 @@ const BookTable = ({ allBooks }) => {
                         {/* Button */}
                         <Link
                           to={`/book/${book._id}`}
-                          className="btn btn-primary btn-xs text-error whitespace-nowrap"
+                          className="btn-primary-cta btn-xs whitespace-nowrap"
                         >
                           View Details
                         </Link>

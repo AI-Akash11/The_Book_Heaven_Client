@@ -382,7 +382,7 @@ const BookForm = () => {
         <div className="pt-4">
           <button
             type="submit"
-            className="btn btn-primary w-full text-error text-lg hover:bg-primary/90 transition-colors duration-300"
+            className="btn-primary-cta w-full text-lg"
             disabled={loading}
           >
             {loading ? (

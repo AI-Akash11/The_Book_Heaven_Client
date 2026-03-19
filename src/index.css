@@ -68,8 +68,46 @@ h6 {
     margin: 0 auto;
 }
 
-a.active{
-  color: #ffffff;
+.menu li > a.active,
+a.active {
+  color: var(--color-neutral);
   border-radius: 40px;
-  background-color: #6d5ef3;
+  background-color: var(--color-primary);
+}
+
+/* ── Button Utilities ─────────────────────────────────────────────── */
+
+/* 1. Primary: main CTA (form submit, Explore Books, View Details, Read Now) */
+.btn-primary-cta {
+  @apply btn bg-primary text-neutral font-semibold border-none
+         rounded-xl shadow-md transition-all duration-300
+         hover:bg-primary/90 hover:scale-105 hover:shadow-lg active:scale-95;
+}
+
+/* 2. Accent: highlighted secondary action (Update, Post Comment) */
+.btn-accent-cta {
+  @apply btn bg-accent text-base-content font-semibold border-none
+         rounded-xl shadow-md transition-all duration-300
+         hover:bg-accent/90 hover:scale-105 hover:shadow-lg active:scale-95;
+}
+
+/* 3. Secondary: supporting action (Add Book banner, Wishlist) */
+.btn-secondary-cta {
+  @apply btn bg-base-content/10 text-base-content font-semibold border-none
+         rounded-xl shadow-md transition-all duration-300
+         hover:bg-base-content/20 hover:scale-105 hover:shadow-lg active:scale-95;
+}
+
+/* 4. Danger: destructive actions (Delete book) */
+.btn-danger {
+  @apply btn bg-red-600 text-white font-semibold border-none
+         rounded-xl shadow-md transition-all duration-300
+         hover:bg-red-700 hover:scale-105 hover:shadow-lg active:scale-95;
+}
+
+/* 5. Outline: cancel / back / social login */
+.btn-outline-cta {
+  @apply btn btn-ghost border-2 border-base-content/30 text-base-content font-semibold shadow-none
+         rounded-xl transition-all duration-300
+         hover:bg-base-content/10 hover:border-base-content/50 hover:scale-105 active:scale-95;
 }

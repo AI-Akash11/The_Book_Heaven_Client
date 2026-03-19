@@ -173,7 +173,7 @@ const Register = () => {
 
           <button
             type="submit"
-            className="mt-5 w-full py-3 rounded-xl bg-primary text-error font-bold text-xl shadow-md hover:shadow-lg active:shadow-sm transition"
+            className="btn-primary-cta mt-5 w-full text-xl"
           >
             Register
           </button>

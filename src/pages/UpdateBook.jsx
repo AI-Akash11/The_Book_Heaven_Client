@@ -158,7 +158,7 @@ const UpdateBook = () => {
           <h2 className="text-2xl font-bold text-base-content mb-4">
             Error Loading Book
           </h2>
-          <button onClick={() => navigate(-1)} className="btn btn-secondary">
+          <button onClick={() => navigate(-1)} className="btn-outline-cta">
             Go Back
           </button>
         </div>
@@ -423,14 +423,14 @@ const UpdateBook = () => {
             <button
               type="button"
               onClick={() => navigate(-1)}
-              className="btn btn-primary text-error flex-1"
+              className="btn-outline-cta flex-1"
               disabled={loading}
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="btn btn-accent flex-1 text-base-content"
+              className="btn-accent-cta flex-1"
               disabled={loading}
             >
               {loading ? (

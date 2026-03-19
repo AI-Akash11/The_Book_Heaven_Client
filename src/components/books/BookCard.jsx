@@ -68,7 +68,7 @@ const BookCard = ({ bookData }) => {
         {/* Action */}
         <Link
           to={`/book/${id}`}
-          className="block w-full text-center mt-4 px-4 py-2.5 text-sm font-medium text-error bg-primary rounded-lg hover:bg-accent transition"
+          className="btn-primary-cta block w-full text-center mt-4 text-sm"
         >
           View Details
         </Link>

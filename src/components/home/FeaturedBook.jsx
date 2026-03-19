@@ -122,13 +122,13 @@ const FeaturedBook = () => {
                   <div className="flex flex-col sm:flex-row gap-3 mt-6">
                     <Link
                       to={`/book/${id}`}
-                      className="px-6 py-2.5 bg-accent text-error font-semibold rounded-lg transition shadow text-center border-2 border-accent hover:border-white hover:bg-accent/90 hover:scale-105 duration-300"
+                      className="btn-primary-cta text-center"
                     >
                       Read Now
                     </Link>
                     <button
                       onClick={handleWishlist}
-                      className="px-6 py-2.5 border-2 border-white hover:border-primary text-base-content font-semibold rounded-lg bg-info hover:bg-info/90 hover:scale-103 transition duration-300"
+                      className="btn-secondary-cta"
                     >
                       Add to Wishlist
                     </button>

@@ -234,13 +234,13 @@ const BookDetails = () => {
                   <div className="mt-6 flex gap-3">
                     <Link
                       to={`/update-book/${id}`}
-                      className="btn btn-accent text-error flex-1 gap-2"
+                      className="btn-accent-cta flex-1 gap-2"
                     >
                       <FaEdit /> Update
                     </Link>
                     <button
                       onClick={handleDelete}
-                      className="btn bg-red-600 flex-1 gap-2 text-error"
+                      className="btn-danger flex-1 gap-2"
                     >
                       <FaTrash /> Delete
                     </button>
@@ -383,7 +383,7 @@ const BookDetails = () => {
                   )}
                   <button
                     type="submit"
-                    className="btn btn-accent mt-3 text-base-content"
+                    className="btn-accent-cta mt-3"
                     disabled={postingComment}
                   >
                     {postingComment ? (
@@ -405,7 +405,7 @@ const BookDetails = () => {
               </p>
               <Link
                 to="/auth/login"
-                className="btn btn-accent text-base-content"
+                className="btn-primary-cta"
               >
                 Login to Comment
               </Link>

@@ -128,7 +128,7 @@ const Navbar = () => {
                 <li>
                   <button
                     onClick={handleLogOut}
-                    className="btn btn-accent text-base-content hover:bg-accent/90 font-semibold w-full"
+                    className="btn-danger w-full"
                   >
                     Logout
                   </button>
@@ -139,13 +139,13 @@ const Navbar = () => {
             <div className="flex gap-3">
               <Link
                 to={"/auth/login"}
-                className="btn btn-accent text-error hover:bg-accent/90 font-semibold ml-2"
+                className="btn-primary-cta ml-2"
               >
                 Login
               </Link>
               <Link
                 to={"/auth/register"}
-                className="btn btn-primary hover:bg-primary/90 text-error font-semibold"
+                className="btn-accent-cta"
               >
                 Register
               </Link>
