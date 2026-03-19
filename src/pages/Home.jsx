@@ -7,7 +7,7 @@ import TopGenres from '../components/home/TopGenres';
 
 const Home = () => {
     return (
-        <div className='space-y-10 md:space-y-20'>
+        <div className='mb-10'>
             <Banner></Banner>
             <LatestBooks></LatestBooks>
             <TopGenres></TopGenres>

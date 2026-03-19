@@ -7,7 +7,7 @@ import SectionSubTitle from "../shared/SectionSubTitle";
 const AboutSection = () => {
   return (
     <Container>
-      <section className="py-10 mb-10">
+      <section className="py-10">
         <div className="max-w-4xl mx-auto text-center">
           <SectionTitle>About The Book Haven</SectionTitle>
 
