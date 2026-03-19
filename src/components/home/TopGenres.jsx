@@ -8,6 +8,9 @@ import {
   FaRocket,
   FaScroll,
 } from "react-icons/fa";
+import Container from "../shared/Container";
+import SectionTitle from "../shared/SectionTitle";
+import SectionSubTitle from "../shared/SectionSubTitle";
 
 const genres = [
   { name: "Fantasy", icon: FaDragon },
@@ -22,15 +25,13 @@ const genres = [
 
 const TopGenres = () => {
   return (
-    <section className="py-16 bg-base-100">
-      <div className="container mx-auto px-4">
+    <Container>
+      <section className="my-10 lg:my-20">
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-base-content mb-3">
-          Top Genres
-        </h2>
-        <p className="text-center text-base-content/70 mb-12 max-w-xl mx-auto">
+        <SectionTitle>Top Genres</SectionTitle>
+        <SectionSubTitle>
           Explore the most loved book genres curated for every kind of reader
-        </p>
+        </SectionSubTitle>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
           {genres.map((genre) => {
@@ -64,8 +65,8 @@ const TopGenres = () => {
             );
           })}
         </div>
-      </div>
-    </section>
+      </section>
+    </Container>
   );
 };
 

@@ -4,6 +4,8 @@ import Loading from "../shared/Loading";
 import { useQuery } from "@tanstack/react-query";
 import BookError from "../shared/BookError";
 import Container from "../shared/Container";
+import SectionTitle from "../shared/SectionTitle";
+import SectionSubTitle from "../shared/SectionSubTitle";
 
 const LatestBooks = () => {
   const axiosInstance = useAxios();
@@ -30,21 +32,22 @@ const LatestBooks = () => {
 
   return (
     <Container>
-      <div className="my-10 lg:my-20 mx-auto">
-        <h2 className="text-5xl font-bold text-base-content mb-2 text-center">
-          Latest Books
-        </h2>
+      <section className="my-10 lg:my-20">
+        <SectionTitle>
 
-        <h4 className=" text-base-content/70 mb-6 text-center">
-          Explore what’s new on our shelves right now.
-        </h4>
+          Latest Books
+        </SectionTitle>
+
+        <SectionSubTitle>
+          Explore what's new on our shelves right now.
+        </SectionSubTitle>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {latestBooks.map((bookData) => (
             <BookCard key={bookData._id} bookData={bookData} />
           ))}
         </div>
-      </div>
+      </section>
     </Container>
   );
 };
